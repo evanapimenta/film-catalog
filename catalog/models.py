@@ -21,15 +21,17 @@ class Genre(models.Model):
 class Movie(models.Model):
 
     title = models.CharField(max_length=100)
-    year = models.IntegerField()
-    genre = models.OneToOneField(Genre, on_delete=models.CASCADE)
+    year = models.DateField(auto_now=False, auto_now_add=False)
+    genre = models.ManyToManyField(Genre)
+    synopsis = models.TextField()
+    poster = models.ImageField(_("Poster"), upload_to="resources/images", max_length=None)
 
     class Meta:
         verbose_name = _("Movie")
         verbose_name_plural = _("Movies")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("Movie_detail", kwargs={"pk": self.pk})
