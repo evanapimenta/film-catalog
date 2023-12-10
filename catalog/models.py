@@ -22,9 +22,9 @@ class Movie(models.Model):
 
     title = models.CharField(max_length=100)
     year = models.DateField(auto_now=False, auto_now_add=False)
-    genre = models.ManyToManyField(Genre)
+    genre = models.ManyToManyField(Genre, related_name='genre')
     synopsis = models.TextField()
-    poster = models.ImageField(_("Poster"), upload_to="resources/images", max_length=None)
+    poster = models.ImageField(_("Poster"), upload_to="resources/images", max_length=None, blank=True)
 
     class Meta:
         verbose_name = _("Movie")
@@ -40,7 +40,7 @@ class Movie(models.Model):
 
 class Catalog(models.Model):
 
-    
+
 
     class Meta:
         verbose_name = _("Catalog")
