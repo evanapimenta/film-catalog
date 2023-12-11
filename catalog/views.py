@@ -5,7 +5,7 @@ from .models import Movie, Genre
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    return render(request, "movies/index.html")
 
 
 def register_movie(request):

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+  
+    <h1>Hey</h1>
+    <div id="content">
+        {% block addmovie %}{% endblock %}
+    </div>
+</body>
+</html>
