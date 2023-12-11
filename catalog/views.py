@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 from .forms import MovieForm
 from .models import Movie, Genre
+
 
 # Create your views here.
 def index(request):
@@ -25,12 +27,17 @@ def register_movie(request):
                 synopsis=synopsis,
                 poster=poster
                 )
+
             movie.genre.set(genre)
             movie.save()
-
-        return render(request, 'index.html')
-
+            messages.success(request, "Filme adicionado com sucesso!", "alert-success alert-dismissible")
+            return render(request, "movies/register.html", {"form": form})
+            
+        else:
+            messages.success(request, "Houve um erro ao registrar o filme. Tente novamente.", "alert-danger alert-dismissible")
+    
     else:
         form = MovieForm()
-
+    
+    
     return render(request, "movies/register.html", {"form": form})

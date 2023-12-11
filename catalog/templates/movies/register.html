@@ -1,21 +1,32 @@
+{% extends "base.html" %}
+
+{% block addmovie %}
 <html>
-    <head>
+    <head>        
         {{ form.media.css }}
+        {{ form.media.js }}
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-      <!-- To render script tags of select2 -->
-      {{ form.media.js }}
     </head>
     <body>
-        <p>Cadastrar Filme</p>
+        <h1>Cadastrar Filme</h1>
         <form action="/register" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Post">
         </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>            
+            {% endfor %}
+        {% endif %}
         <script>
             $(document).ready(function() {
                $('#id_movie_genres').select2();
@@ -23,3 +34,4 @@
             </script>
     </body>
 </html>
+{% endblock %}
