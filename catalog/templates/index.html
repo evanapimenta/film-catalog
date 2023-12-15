@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block index %}
+<style>
+    body {
+		background: #212529;
+    }
+    
+        #container {
+        height: 25em;
+        margin: auto;
+	}
+    
+    .card {
+        width: 10%;
+        height: 12em;
+        transition: ease-out 0.2s;
+    }
+
+    .card:hover {
+        height: 12.5em;
+        width: 11%;
+        transition: ease-in 0.2s;
+    }
+
+    .card-1 {
+        width: 14.5%; 
+        height: 10em;
+        transition: ease-out 0.2s;
+    }
+
+    .card-1:hover {
+        width: 18%;
+        transition: ease-in 0.2s;
+    }
+
+    /* to-do: adicionar zoom na imagem? */
+
+    h1 {
+        font-family: 'Rethink Sans', sans-serif;
+        font-weight: 600; 
+        font-size: 1.5em;
+    }
+
+    .form-control.me-sm-2.text-dark.bg-light.p-2 {
+        background-color: rgba(33,37,41,0.4) !important;
+        color: #D3D3D3 !important;
+    }
+
+    .form-control.me-sm-2.text-dark.bg-light.p-2::placeholder {
+        color: #D3D3D3;
+    }
+
+    .d-flex.btn.btn-primary.text-light.bg-light {
+        background-color: transparent !important;
+        border-color: #212529 !important;
+        font-size: 20px; 
+    }
+
+    .d-flex.btn.text-light.align-items-center.justify-content-center.fw-bold {
+        background: rgb(44,42,72);
+        background: linear-gradient(352deg, rgba(44,42,72,1) 31%, rgba(11,13,33,1) 100%); 
+        font-size: 16px;
+        transition: ease-out 0.2s;
+    }
+
+    .d-flex.btn.text-light.align-items-center.justify-content-center.fw-bold:hover {
+        font-size: 17px;
+        transition: ease-in 0.2s;
+    }
+
+    #visible-cards {
+        overflow-x: scroll;
+    }
+
+</style>
+<body>
+    <div id="container" class="w-100">
+        <!-- Section 1 -->
+        <section id="section-1" class="h-100 d-flex flex-row text-light">
+            <div class="w-100 h-100 d-flex flex-column justify-content-center" style="background-image: url('https://i.imgur.com/A8rGZtQ.jpg'); background-size: cover;">
+            
+            <div class="d-flex flex-column align-items-center">
+                <h1 style="font-family: 'Rethink Sans', sans-serif; font-weight: 800; font-size: 3em;">Bem vindo!</h1>
+                <h5 style="font-family: 'Rethink Sans', sans-serif; font-weight: 700; font-size: 1.5em;">Explore nossa seleção e encontre o <span style="color: #e5bbce;">filme</span>  ou <span style="color: #e5bbce;">série</span> que vai mudar sua vida.</h5>
+            </div>
+
+            <!-- Form -->
+            <div class="d-flex justify-content-center">
+                <form class="row my-2 my-lg-0 mx-3 p-3 align-items-center" style="width: 60%;">
+                    <div class="col">
+                        <input class="form-control me-sm-2 text-dark bg-light p-2" type="search" placeholder="Procure por um filme, série ou pessoa..." aria-label="Search" style="background-color: transparent;">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Fim form -->
+            </div>
+        </section>
+        <!-- Section 1 -->
+
+
+    <section id="section-2" class="d-flex flex-column">
+        <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800;">Novidades</h5>
+
+        <div id="all-cards">
+            <div id="visible-cards" class="d-flex flex-row gap-4" style="margin-left: 3.7em;">
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <div class="card bg-light">.</div>
+                <button class="d-flex btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse" style="width: 14.5%;">
+                    Veja mais
+                </button>     
+            </div>
+            <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
+
+            <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800;">Por gênero</h5>
+
+            <div id="all-cards">
+                <div id="visible-cards" class="d-flex flex-column" style="margin-left: 3.7em;">
+                    <div class="genre-wrapper d-flex flex-row gap-4">
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>   
+                    </div>
+                    <div>.</div>
+                    <div class="genre-wrapper d-flex flex-row gap-4">
+                        <div class="card-1 d-flex bg-light text-bottom"><p>.</p>.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <div class="card-1 bg-light">.</div>
+                        <button class="d-flex btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse" style="width: 15%;">
+                            Veja mais
+                        </button>                         
+                    </div>
+
+                </div>
+
+    </section>
+</body>
+<footer></footer>
+{% endblock %}
