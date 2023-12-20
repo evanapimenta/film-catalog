@@ -76,8 +76,8 @@
 	}
     
     .card {
-        width: 10%;
-        height: 12em;
+        width: 12%;
+        height: 14em;
         text-align: center;
         display: flex; 
         align-items: center; 
@@ -87,8 +87,8 @@
     }
 
     .card:hover {
-        height: 12.5em;
-        width: 11%;
+        height: 14.5em;
+        width: 12.5%;
         transition: ease-in 0.2s;
     }
 
@@ -132,7 +132,7 @@
         background: linear-gradient(352deg, rgba(44,42,72,1) 31%, rgba(11,13,33,1) 100%); 
         font-size: 16px;
         transition: ease-out 0.2s;
-        width: 18%;
+        width: 13%;
     }
 
     .more-btn:hover {
@@ -140,6 +140,20 @@
         transition: ease-in 0.2s;
     }
 
+    .genre-btn {
+        background: rgb(44,42,72);
+        background: linear-gradient(352deg, rgba(44,42,72,1) 31%, rgba(11,13,33,1) 100%); 
+        font-size: 16px;
+        transition: ease-out 0.2s;
+        width: 18%;
+    }
+
+    .genre-btn:hover {
+        font-size: 17px;
+        transition: ease-in 0.2s;
+    }
+
+    
     #visible-cards {
         overflow-x: scroll;
     }
@@ -153,7 +167,8 @@
     #overlay {
         z-index: 9999;
         background: rgb(44,42,72);
-        background: linear-gradient(180deg, rgba(44,42,72,0.3) 31%, rgba(5,6,15,0.9) 100%);         width: 100%;
+        background: linear-gradient(180deg, rgba(44,42,72,0.3) 31%, rgba(5,6,15,0.9) 100%);         
+        width: 100%;
         height: 100%;
         display: flex;
         text-align: center;
@@ -168,6 +183,61 @@
         background-position: 50% 50%;
     }
 
+    [type='radio'] {
+        display: none; 
+    }
+
+    .d-inline.btn-group.btn-group-toggle.align-self-center {
+        width: 15%;
+        margin-left: -50px;
+        margin-top: -5px;
+    }
+
+    hr {
+        opacity: 20%;
+    }
+
+    h3 {
+        font-family: 'Kalnia', serif;
+        font-size: 2em;
+        font-weight: 700; 
+        line-height: 60%;
+        user-select: none;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #footer-links a {
+        text-decoration: none;
+        color: #D3D3D3;
+    }
+
+    .btn.btn-secondary.active {
+        background-color: #13142b;
+        border: none;
+        border-radius: 25px;
+        font-weight: 700;
+        padding-left: 18px;
+        transition: ease-in 0.2s;
+    }
+
+    .btn.btn-secondary {
+        background-color: #2A2C48;
+        border: none;
+        border-radius: 25px;
+        padding-right: 16px;
+        transition: ease-in 0.2s;
+    }
+
+    .d-inline.btn-group.btn-group-toggle.align-self-center {
+        background-color: #2A2C48;
+        border-radius: 25px;
+        width: auto;
+    }
+    
 </style>
 <body>
     <div id="container" class="w-100">
@@ -198,10 +268,20 @@
 
 
     <section id="section-2" class="d-flex flex-column">
-        <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800;">Novidades</h5>
+        <div class="d-flex d-row">
+            <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Novidades</h5>
+            <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" checked> Filmes
+                </label>
+                <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2"> Séries
+                </label>
+            </div>
+        </div>
 
         <div id="all-cards">
-            <div id="visible-cards" class="d-flex flex-row gap-4" style="margin-left: 3.7em;">
+            <div id="visible-cards" class="d-flex flex-row gap-4 mx-5">
                 <div class="card bg-light">
                     <div id="overlay">
                         <img src="" alt="">
@@ -244,13 +324,77 @@
                         <p>Nome do filme</p>
                     </div>
                 </div>
-                <button class="d-flex more-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse" style="width: 14.5%;">
+                <button class="d-flex more-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
                     Veja mais
                 </button>     
             </div>
+
             <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
 
-            <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800;">Por gênero</h5>
+            <div class="d-flex d-row">
+                <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Em Alta</h5>
+                <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" checked> Filmes
+                    </label>
+                    <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2"> Séries
+                    </label>
+                </div>
+            </div>
+    
+            <div id="all-cards">
+                <div id="visible-cards" class="d-flex flex-row gap-4 mx-5">
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <div class="card bg-light">
+                        <div id="overlay">
+                            <img src="" alt="">
+                            <p>Nome do filme</p>
+                        </div>
+                    </div>
+                    <button class="d-flex more-btn btn text-light align-items-center justify-content-center fw-bold main-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                        Veja mais
+                    </button>     
+                </div>
+            
+                <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
+
+            <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Filmes - Por gênero</h5>
 
             <div id="all-cards">
                 <div id="visible-cards" class="d-flex flex-column" style="margin-left: 3.7em;">
@@ -323,14 +467,30 @@
                                 <p>Romance</p>
                             </div>
                         </div>
-                        <button class="more-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                        <button class="genre-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
                             Veja mais
                         </button>                         
                     </div>
-
                 </div>
-
     </section>
+    <footer class="d-flex flex-row text-light gap-5 justify-content-center align-items-center" style="height: 15em; background-color: #13142b; margin-top: 5em;">
+        <div class="d-flex flex-column"><h3>Movie</h3><h3 style="color: #e5bbce;">Mate</span></h3></div>
+        <div class="align-self-start py-5">
+            <p class="d-inline fw-bold">SOBRE O PROJETO</p>
+            <ul id="footer-links">
+                <li><a href="">Sobre o MovieMate</a></li>
+                <li><a href="">Suporte</a></li>
+                <li><a href="">API</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+        </div>
+        <div class="align-self-start py-5">
+            <p class="d-inline fw-bold">CONTRIBUA</p>
+            <ul id="footer-links">
+                <li><a href="">Adicionar um novo filme</a></li>
+                <li><a href="">Adicionar uma nova série</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
-<footer></footer>
 {% endblock %}
