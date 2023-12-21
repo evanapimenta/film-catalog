@@ -8,6 +8,17 @@
         color: #212529 !important;
       }
 
+      #search-btn {
+        font-weight: bold;
+        border: 1px linear-gradient(45deg, #e5bbce, #646897);
+      }
+
+      #search-btn:hover {
+        background-image: linear-gradient(45deg, #e5bbce, #646897);
+        border: 1px solid #e5bbce;        
+        transition: ease-in-out 0.2s;
+        
+    }
    </style>
   <title>{% block title %}{% endblock %}</title>
   {% load bootstrap5 %}
@@ -61,13 +72,13 @@
           <input class="form-control me-sm-2 text-light w-100" type="search" placeholder="Buscar filme, série ou pessoa" aria-label="Search" style="background-color: transparent;">
         </div>
         <div class="col-auto">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #e5bbce; border: 1px solid #e5bbce;">Buscar</button>
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #e5bbce; border: 1px solid #e5bbce;" id="search-btn">Pesquisar</button>
         </div>
        </form>
   </nav>
     <div id="content" class="d-flex flex-row">
-        {% block addmovie %}{% endblock %}
-        {% block index %}{% endblock %}
+      {% block index %}{% endblock %}
+      {% block addmovie %}{% endblock %}
     </div>
 </body>
 </html>

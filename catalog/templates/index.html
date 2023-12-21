@@ -218,25 +218,19 @@
     .btn.btn-secondary.active {
         background-color: #13142b;
         border: none;
-        border-radius: 25px;
         font-weight: 700;
-        padding-left: 18px;
         transition: ease-in 0.2s;
-    }
+        background-image: linear-gradient(45deg, #e5bbce, #646897);
+        color: rgb(36, 33, 66);
+
+        }
 
     .btn.btn-secondary {
         background-color: #2A2C48;
         border: none;
-        border-radius: 25px;
-        padding-right: 16px;
         transition: ease-in 0.2s;
     }
 
-    .d-inline.btn-group.btn-group-toggle.align-self-center {
-        background-color: #2A2C48;
-        border-radius: 25px;
-        width: auto;
-    }
     
 </style>
 <body>
@@ -257,7 +251,7 @@
                         <input class="form-control me-sm-2 text-dark bg-light p-2" type="search" placeholder="Procure por um filme, série ou pessoa..." aria-label="Search" style="background-color: transparent;">
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+                        <button class="btn btn-outline-light my-2 my-sm-0" id="search-btn" type="submit">Buscar!</button>
                     </div>
                 </form>
             </div>
@@ -271,8 +265,8 @@
         <div class="d-flex d-row">
             <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Novidades</h5>
             <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                <input type="radio" name="options" id="option1" checked> Filmes
+                <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option1"> Filmes
                 </label>
                 <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option2"> Séries
@@ -334,10 +328,10 @@
             <div class="d-flex d-row">
                 <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Em Alta</h5>
                 <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" checked> Filmes
+                    <label class="btn btn-secondary" id="btn-toggle">
+                        <input type="radio" name="options" id="option1"> Filmes
                     </label>
-                    <label class="btn btn-secondary">
+                    <label class="btn btn-secondary" id="btn-toggle">
                     <input type="radio" name="options" id="option2"> Séries
                     </label>
                 </div>
@@ -492,5 +486,20 @@
             </ul>
         </div>
     </footer>
+    <script>
+        var buttonGroup = document.querySelectorAll(".btn-secondary");
+
+
+        buttonGroup.forEach(function(button){
+    button.addEventListener("click", function(){
+        buttonGroup.forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+    });
+});
+
+    </script>
 </body>
 {% endblock %}
