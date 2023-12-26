@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.views.generic import ListView
 
 from .forms import MovieForm
 from .models import Movie, Genre
@@ -7,7 +8,14 @@ from .models import Movie, Genre
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    context = {}
+    movies = Movie.objects.all()
+    context["movies"] = movies
+    return render(request, "index.html", context=context)
+
+
+def latest_movies(request):
+    return render(request, "movies/all_latest.html")
 
 
 def register_movie(request):

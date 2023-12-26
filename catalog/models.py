@@ -24,7 +24,8 @@ class Movie(models.Model):
     year = models.DateField(auto_now=False, auto_now_add=False)
     genre = models.ManyToManyField(Genre, related_name='genre')
     synopsis = models.TextField()
-    poster = models.ImageField(_("Poster"), upload_to="resources/images", max_length=None, blank=True)
+    poster = models.ImageField(_("Poster"), upload_to="static/images", max_length=None, blank=True)
+    date_added = models.DateField(auto_now_add=True)
 
     class Meta:
         verbose_name = _("Movie")
@@ -35,8 +36,6 @@ class Movie(models.Model):
 
     def get_absolute_url(self):
         return reverse("Movie_detail", kwargs={"pk": self.pk})
-
-
 
 class Catalog(models.Model):
 
