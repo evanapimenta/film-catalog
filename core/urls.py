@@ -24,4 +24,5 @@ urlpatterns = [
     path('select2/', include("django_select2.urls")),
     path('', views.index),
     path('register', views.register_movie),
+    path('latest_movies', views.latest_movies),
 ]
