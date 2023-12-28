@@ -17,15 +17,15 @@ class Genre(models.Model):
         return reverse("Genre_detail", kwargs={"pk": self.pk})
 
 
-
 class Movie(models.Model):
 
     title = models.CharField(max_length=100)
     year = models.DateField(auto_now=False, auto_now_add=False)
-    genre = models.ManyToManyField(Genre, related_name='genre')
+    genre = models.ManyToManyField(Genre, related_name='movie_genre')
     synopsis = models.TextField()
     poster = models.ImageField(_("Poster"), upload_to="static/images", max_length=None, blank=True)
     date_added = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
 
     class Meta:
         verbose_name = _("Movie")
@@ -36,10 +36,30 @@ class Movie(models.Model):
 
     def get_absolute_url(self):
         return reverse("Movie_detail", kwargs={"pk": self.pk})
+    
+    
+class Show(models.Model):
+
+    title = models.CharField(max_length=50)
+    year = models.DateField(auto_now=False, auto_now_add=False)
+    genre = models.ManyToManyField(Genre, related_name=_('show_genre'))
+    synopsis = models.TextField()
+    poster = models.ImageField(_("Poster"), upload_to='static/images', max_length=None, blank=True)
+    date_added = models.DateField(auto_now_add=True)
+    date_updated = models.DateField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("Show")
+        verbose_name_plural = _("Shows")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Show_detail", kwargs={"pk": self.pk})
+
 
 class Catalog(models.Model):
-
-
 
     class Meta:
         verbose_name = _("Catalog")
@@ -50,3 +70,4 @@ class Catalog(models.Model):
 
     def get_absolute_url(self):
         return reverse("Catalog_detail", kwargs={"pk": self.pk})
+    
