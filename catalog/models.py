@@ -58,6 +58,25 @@ class Show(models.Model):
     def get_absolute_url(self):
         return reverse("Show_detail", kwargs={"pk": self.pk})
 
+class Show(models.Model):
+    title = models.CharField(max_length=5
+    year = models.DateField(auto_now=False, auto_now_add=Fals
+    genre = models.ManyToManyField(Genre, related_name=_('show_genre'
+    synopsis = models.TextField
+    poster = models.ImageField(_("Poster"), upload_to='static/images', max_length=None, blank=Tru
+    date_added = models.DateField(auto_now_add=Tru
+    date_updated = models.DateField(auto_now=True)
+
+class Meta:
+    verbose_name = _("Show")
+    verbose_name_plural = _("Shows")
+ 
+def __str__(self):
+    return self.name
+-
+def get_absolute_url(self):
+    return reverse("Show_detail", kwargs={"pk": self.pk})
+
 
 class Catalog(models.Model):
 
