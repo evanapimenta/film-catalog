@@ -18,6 +18,10 @@ def latest_movies(request):
     return render(request, "movies/all_latest.html")
 
 
+def show_movie(request):
+    return render(request, "movies/show_movie.html")
+
+
 def register_movie(request):
     if request.method == "POST":
         form = MovieForm(request.POST, request.FILES)
