@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.index),
     path('register', views.register_movie),
     path('latest_movies', views.latest_movies),
+    path('show_movie', views.show_movie),
     path('register_show', views.register_show),
 ]
