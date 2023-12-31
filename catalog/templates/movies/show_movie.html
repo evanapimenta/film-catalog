@@ -4,9 +4,20 @@
 <div id="desc-container" class="d-flex flex-column p-5">
     <div class="movie-bg" style="background-image: url('https://www.syfy.com/sites/syfy/files/2019/05/john-wick-2017-image-3840x2400.jpg');">
         <div id="movie-overlay">
-            <div class="movie-img d-flex w-50 align-items-center justify-content-center"><div class="img-img"></div>
-            <div class="movie-desc d-flex w-25 align-items-center justify-content-center"><p>Nome do filme</p></div>
-       </div>
+            <div class="movie-img d-flex align-items-baseline justify-content-center">
+                <div class="img-img" style="background-image: url('https://www.syfy.com/sites/syfy/files/2019/05/john-wick-2017-image-3840x2400.jpg');"></div>
+            </div>
+            <div class="movie-desc d-flex flex-column justify-content-center w-100">
+                <h1 class="title w-100">{'{ movie.title }}</h1>
+                <p class="d-inline fw-normal">{'{ movie.year }} • "{'{ movie.genres }}"</p>
+                <div class="d-inline">
+                    <button class="options-btn"><i class="fa-regular fa-bookmark"></i></button>
+                    <button class="options-btn"><i class="fa-regular fa-heart"></i></button>
+                    <button class="options-btn"><i class="fa-regular fa-star"></i></button>
+                </div>
+                <p class="fs-5 fw-bold">Sinopse</p>
+                <p class="synopsis"> {'{ movie.synopsis }} </p>
+            </div>
     </div>
     </div>
 </div>
