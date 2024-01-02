@@ -2,11 +2,8 @@
 
 {% block addshow %}
 <style>
-    nav {
-        background-color: rgba(5,6,15,0.9) !important;
-    }
 </style>
-<div class="add-class">
+<div class="add-class container">
         <h1 class="main-title">Cadastrar Série</h1>
         <form action="/register_show" method="post" enctype="multipart/form-data" id="add-form">
             {% csrf_token %}
