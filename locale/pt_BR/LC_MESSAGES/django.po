@@ -43,6 +43,10 @@ msgid "Romance"
 msgstr "Romance"
 
 #: catalog/models.py:7
+msgid "Fantasy"
+msgstr "Fantasia"
+
+#: catalog/models.py:7
 msgid "Science Fiction"
 msgstr "Ficção Científica"
 
