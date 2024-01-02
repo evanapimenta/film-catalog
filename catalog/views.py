@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.views.generic import ListView
 
@@ -10,8 +10,11 @@ from .models import Movie, Show, Genre
 def index(request):
     context = {}
     movies = Movie.objects.all()
+    series = Show.objects.all()
     context["movies"] = movies
+    context["series"] = series
     return render(request, "index.html", context=context)
+
 
 
 def latest_movies(request):
@@ -44,7 +47,7 @@ def register_movie(request):
             movie.save()
             messages.success(request, "Filme adicionado com sucesso!", "alert-success alert-dismissible")
             
-            return render(request, "movies/register.html", {"form": form})
+            return redirect('index')
             
         else:
             messages.success(request, "Houve um erro ao registrar o filme. Tente novamente.", "alert-danger alert-dismissible")

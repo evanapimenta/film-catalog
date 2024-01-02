@@ -22,8 +22,8 @@ from catalog import views, forms
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('select2/', include("django_select2.urls")),
-    path('', views.index),
-    path('register', views.register_movie),
+    path('', views.index, name='index'),
+    path('register', views.register_movie, name='register'),
     path('latest_movies', views.latest_movies),
     path('show_movie', views.show_movie),
     path('register_show', views.register_show),
