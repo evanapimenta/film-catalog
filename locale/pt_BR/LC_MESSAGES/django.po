@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-02 15:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: catalog/forms.py:9 catalog/models.py:22 catalog/models.py:43
+msgid "Title"
+msgstr "Título"
+
+#: catalog/models.py:7
+msgid "Comedy"
+msgstr "Comédia"
+
+#: catalog/models.py:7
+msgid "Drama"
+msgstr "Drama"
+
+#: catalog/models.py:7
+msgid "Horror"
+msgstr "Terror"
+
+#: catalog/models.py:7
+msgid "Mystery"
+msgstr "Mistério"
+
+#: catalog/models.py:7
+msgid "Romance"
+msgstr "Romance"
+
+#: catalog/models.py:7
+msgid "Fantasy"
+msgstr "Fantasia"
+
+#: catalog/models.py:7
+msgid "Science Fiction"
+msgstr "Ficção Científica"
+
+#: catalog/forms.py:10 catalog/forms.py:18 catalog/models.py:23
+#: catalog/models.py:44
+msgid "Release date"
+msgstr "Data de lançamento"
+
+#: catalog/forms.py:11 catalog/forms.py:19 catalog/models.py:11
+msgid "Genres"
+msgstr "Gênero(s)"
+
+#: catalog/forms.py:12 catalog/forms.py:20 catalog/models.py:25
+#: catalog/models.py:46
+msgid "Synopsis"
+msgstr "Sinopse"
+
+#: catalog/forms.py:13 catalog/forms.py:21 catalog/models.py:26
+#: catalog/models.py:47
+msgid "Poster"
+msgstr "Pôster"
+
+#: catalog/forms.py:17
+msgid "Show title"
+msgstr "Título"
+
+#: catalog/models.py:7
+msgid "Name"
+msgstr "Nome"
+
+#: catalog/models.py:10
+msgid "Genre"
+msgstr "Gênero"
+
+#: catalog/models.py:27 catalog/models.py:48
+msgid "Date added"
+msgstr "Data de criação"
+
+#: catalog/models.py:28 catalog/models.py:49
+msgid "Date updated"
+msgstr "Data de modificação"
+
+#: catalog/models.py:31
+msgid "Movie"
+msgstr "Filme"
+
+#: catalog/models.py:32
+msgid "Movies"
+msgstr "Filmes"
+
+#: catalog/models.py:45
+msgid "show_genre"
+msgstr "genero_serie"
+
+#: catalog/models.py:52
+msgid "Show"
+msgstr "Série"
+
+#: catalog/models.py:53
+msgid "Shows"
+msgstr "Séries"
+
+#: catalog/models.py:65
+msgid "Catalog"
+msgstr "Catálogo"
+
+#: catalog/models.py:66
+msgid "Catalogs"
+msgstr "Catálogos"
+
+#: core/settings.py:117
+msgid "Portuguese"
+msgstr "Português"
+
+#: catalog/models.py:7
+msgid "Action"
+msgstr "Ação"
+
+#: catalog/models.py:7
+msgid "Adventure"
+msgstr "Aventura"
+
+#: catalog/models.py:7
+msgid "Animation"
+msgstr "Animação"
+
