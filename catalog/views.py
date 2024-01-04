@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic import ListView
 
@@ -24,7 +25,7 @@ def latest_movies(request):
 def show_movie(request):
     return render(request, "movies/show_movie.html")
 
-
+@login_required
 def register_movie(request):
     if request.method == "POST":
         form = MovieForm(request.POST, request.FILES)
@@ -56,7 +57,7 @@ def register_movie(request):
         form = MovieForm()
     
     
-    return render(request, "movies/register.html", {"form": form})
+    return render(request, "movies/add_movie.html", {"form": form})
 
 
 
@@ -82,7 +83,7 @@ def register_show(request):
             show.save()
             messages.success(request, "Série adicionada com sucesso!", "alert-success alert-dismissible")
             
-            return render(request, "shows/register_show.html", {"form": form})
+            return redirect('index')
             
         else:
             messages.success(request, "Houve um erro ao registrar a série. Tente novamente.", "alert-danger alert-dismissible")
@@ -91,4 +92,4 @@ def register_show(request):
         form = ShowForm()
     
     
-    return render(request, "shows/register_show.html", {"form": form})
+    return render(request, "shows/add_show.html", {"form": form})
