@@ -8,16 +8,6 @@ from .models import Movie, Show, Genre
 
 
 # Create your views here.
-def index(request):
-    context = {}
-    movies = Movie.objects.all()
-    series = Show.objects.all()
-    context["movies"] = movies
-    context["series"] = series
-    return render(request, "index.html", context=context)
-
-
-
 def latest_movies(request):
     return render(request, "movies/all_latest.html")
 
