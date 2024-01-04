@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
     'config',
     'catalog',
+    'authentication',
     'easy_select2',
     'bootstrap5',
 ]
@@ -144,3 +145,5 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']

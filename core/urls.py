@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from catalog import views, forms
+from catalog import views as catalog_views
+from authentication import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('select2/', include("django_select2.urls")),
-    path('', views.index, name='index'),
-    path('register', views.register_movie, name='register'),
-    path('latest_movies', views.latest_movies),
-    path('show_movie', views.show_movie),
-    path('register_show', views.register_show),
+    path('', catalog_views.index, name='index'),
+    path('add_movie', catalog_views.register_movie, name='add_movie'),
+    path('latest_movies', catalog_views.latest_movies, name='latest_movies'),
+    path('show_movie', catalog_views.show_movie, name='movie'),
+    path('add_show', catalog_views.register_show, name='add_show'),
+    path('login', auth_views.login_page, name='login')
 ]
