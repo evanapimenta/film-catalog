@@ -23,7 +23,7 @@ class Movie(models.Model):
     year = models.DateField(_("Release date"), auto_now=False, auto_now_add=False)
     genre = models.ManyToManyField(Genre, related_name='movie_genre')
     synopsis = models.TextField(_("Synopsis"),)
-    poster = models.ImageField(_("Poster"), upload_to="static/images", max_length=None, blank=True)
+    poster = models.ImageField(_("Poster"), upload_to="static/assets", max_length=None, blank=True)
     date_added = models.DateField(_("Date added"),auto_now_add=True)
     date_updated = models.DateField(_("Date updated"),auto_now=True)
 
@@ -44,7 +44,7 @@ class Show(models.Model):
     year = models.DateField(_("Release date"),auto_now=False, auto_now_add=False)
     genre = models.ManyToManyField(Genre, related_name=_('show_genre'))
     synopsis = models.TextField(_("Synopsis"),)
-    poster = models.ImageField(_("Poster"), upload_to='static/images', max_length=None, blank=True)
+    poster = models.ImageField(_("Poster"), upload_to='static/assets', max_length=None, blank=True)
     date_added = models.DateField(_("Date added"),auto_now_add=True)
     date_updated = models.DateField(_("Date updated"),auto_now=True)
 
