@@ -26,8 +26,22 @@
         </li>
       </ul>
       <ul class="nav px-2 py-2 ms-auto">
-        <li class="nav-item">
-          <a class="nav-link link-light" href="/">Login</a>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link link-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Perfil</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgba(19, 20, 43, 0.9) !important; width: 80%;">
+              <p class="px-3 pt-2 text-light">Olá, <span class="fw-bold">{{ user }}</span>!</p>
+              <hr class="text-light">
+              <a class="dropdown-item text-light" href="#"><i class="fa-regular fa-user me-2"></i>Meu perfil</a>
+              <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-list me-2"></i>Minhas listas</a>
+              <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Logout</a>
+            </div>
+          </li>
+          {% else %}
+            <a class="nav-link link-light" href="/">Login</a>
+          {% endif %}
+          
         </li>
         <li class="nav-item">
           <a class="nav-link link-light" href="/register"></a>
@@ -38,6 +52,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/add_movie">Adicionar novo filme</a>
             <a class="dropdown-item" href="/add_show">Adicionar nova série</a>
+          </div>
         </li>
       </ul>
       <form class="row my-2 my-lg-0 mx-3">

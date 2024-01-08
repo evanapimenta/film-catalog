@@ -1,13 +1,11 @@
-from django.shortcuts import render, redirect
-from django.views.generic import View
-from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
+from django.views import View
 from django.contrib.auth import login
+from django.contrib import messages
 
 from catalog.models import Movie, Show
 
-
-# Create your views here.
 
 class IndexView(View):
     def get(self, request):
@@ -21,11 +19,12 @@ class IndexView(View):
 
 class LoginView(View):
     def get(self, request):
-        return render(request, 'login/login.html')
-    
+        form = AuthenticationForm()
+        return render(request, 'config/login/login.html', {'form': form})
     
     def post(self, request):
         form = AuthenticationForm(data=request.POST)
+        
         if form.is_valid():
             user = form.get_user()
             login(request, user)
@@ -38,5 +37,4 @@ class LoginView(View):
             return redirect('index')
         else:
             messages.error(request, "Erro! Usuário ou senha incorreta")
-            
             return redirect('login')

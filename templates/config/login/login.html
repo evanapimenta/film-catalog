@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block login %}
+<div class="add-class container p-5">
+    <div class="add-title">
+        <h1 class="main-title">Login</h1>
+    </div>
+    <form action="{% url 'login' %}" method="post" enctype="multipart/form-data" id="add-form">
+        {% csrf_token %}
+        {{ form.username.label_tag }} {{ form.username }}
+        {{ form.password.label_tag }} {{ form.password }}
+        <input type="submit" value="Entrar!">
+    </form>
+</div>
+{% endblock %}
