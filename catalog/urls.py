@@ -19,8 +19,8 @@ from django.urls import path, include
 from catalog import views
 
 urlpatterns = [
-    path('add_movie', views.register_movie, name='add_movie'),
-    path('latest_movies', views.latest_movies, name='latest_movies'),
-    path('show_movie', views.show_movie, name='movie'),
-    path('add_show', views.register_show, name='add_show'),
+    path('add_movie/', views.register_movie, name='add_movie'),
+    path('latest_movies/', views.latest_movies, name='latest_movies'),
+    path('show_movie/', views.show_movie, name='movie'),
+    path('add_show/', views.register_show, name='add_show'),
 ]
