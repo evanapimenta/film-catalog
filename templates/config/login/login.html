@@ -26,5 +26,6 @@
         {{ form.password.label_tag }} {{ form.password }}
         <input type="submit" value="Entrar!" class="lr-btn align-self-center my-2 w-100">
     </form>
+    <p>Ainda não possui uma conta? <a class="text-light fw-bold text-decoration-none" href="{% url 'register' %}">Crie uma conta</a>!</p>
 </div>
 {% endblock %}

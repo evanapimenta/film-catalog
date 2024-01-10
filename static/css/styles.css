@@ -412,14 +412,15 @@ h1 {
     line-height: 0.9em;
 }
 
+.dropdown-menu {
+    background-color: rgba(19, 20, 43) !important; 
+    width: 15em;
+    border: 1px solid #0a0a18;
+}
 
-
-
-
-
-
-
-
+.dropdown-menu a:hover {
+    color: #0a0a18 !important;
+}
 
 
 
