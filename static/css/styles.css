@@ -233,6 +233,38 @@
     margin-top: -5px;
 }
 
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70em;
+}
+
+.register-table label {
+    margin: 10px 20px 10px 3px;
+}
+
+.register-table input {
+    width: 100%;
+}
+
+.lr-btn {
+    color: #D3D3D3;
+    background-color: #0a0a18 !important;
+    border: none;
+    transition: ease-in 0.2s;
+}
+
+.lr-btn:hover {
+    /* background: #e5bbce;
+    background-image: linear-gradient(45deg, #e5bbce, #646897); */
+    border: 1px solid #e5bbce;        
+    transition: ease-in-out 0.2s;
+    color: #13142b !important;
+    font-weight: 500;
+}
+
 /* forms related classes */
 .form-control.me-sm-2.text-dark.bg-light.p-2 {
   background-color: rgba(33,37,41,0.4) !important;
