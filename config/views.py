@@ -46,8 +46,9 @@ class LoginView(View):
 
 def logout_view(request):
     logout(request)
-    
+
     return redirect('index')
+
 
 class RegisterView(View):
     def get(self, request):
