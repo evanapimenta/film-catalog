@@ -99,6 +99,7 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
