@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block login %}
+<style>
+    .lr-btn {
+    color: #D3D3D3;
+    border: none;
+    transition: ease-in 0.2s;
+}
+
+.lr-btn:hover {
+    background: #e5bbce;
+    background-image: linear-gradient(45deg, #e5bbce, #646897);
+    border: 1px solid #e5bbce;        
+    transition: ease-in-out 0.2s;
+    color: #13142b !important;
+    font-weight: 500;
+}
+</style>
 <div class="add-class container p-5">
     <div class="add-title">
         <h1 class="main-title">Login</h1>
@@ -8,7 +24,7 @@
         {% csrf_token %}
         {{ form.username.label_tag }} {{ form.username }}
         {{ form.password.label_tag }} {{ form.password }}
-        <input type="submit" value="Entrar!">
+        <input type="submit" value="Entrar!" class="lr-btn align-self-center my-2 w-100">
     </form>
 </div>
 {% endblock %}

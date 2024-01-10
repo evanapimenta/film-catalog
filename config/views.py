@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login
 from django.contrib import messages
+# from django.contrib.auth.forms import UserCreationForm
+
+from .forms import CustomUserCreationForm
 
 from catalog.models import Movie, Show
 
@@ -38,3 +41,28 @@ class LoginView(View):
         else:
             messages.error(request, "Erro! Usuário ou senha incorreta")
             return redirect('login')
+
+
+
+class RegisterView(View):
+    def get(self, request):
+        form = CustomUserCreationForm()
+        return render(request, 'config/register.html', {'form': form})
+    
+    def post(self, request):
+        form = CustomUserCreationForm(data=request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            next_page = request.GET.get('next', None)
+
+            if next_page:
+                return redirect(next_page)
+            
+            return redirect('index')
+            # TO-DO: Criar página com mensagem de redirectionaento. return redirect('registration_success')
+
+        else:
+            messages.error(request, "Cadastro não realizado. Tente novamente")
+            return redirect('register')

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block register %}
+<style>
+    .register-table input {
+        background-color: red;
+        width: 20em;
+        margin: 0.5em;
+    }
+
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70em;
+    }
+
+    .register-table label {
+        margin: 10px 20px 10px 3px;
+    }
+
+    .register-table input {
+        width: 100%;
+    }
+    .lr-btn {
+        color: #D3D3D3;
+        background-color: #0a0a18 !important;
+        border: none;
+    }
+
+    .lr-btn:hover {
+        background: #e5bbce;
+        background-image: linear-gradient(45deg, #e5bbce, #646897);
+        border: 1px solid #e5bbce;        
+        transition: ease-in-out 0.2s;
+        color: #13142b !important;
+        font-weight: 500;
+}
+
+
+</style>
+<div class="add-class container p-5">
+    <div class="add-title">
+        <h1 class="main-title">Criar Conta</h1>
+    </div>
+
+        <div class="table-container">
+            <form action="{% url 'register' %}" method="post" enctype="multipart/form-data" id="add-form">
+                {% csrf_token %}
+                <table class="d-flex flex-row register-table">
+                    <tr class="flex flex-column align-items-center">
+                            <td>{{ form.name.label_tag }} {{ form.name }}</td>
+                            <td>{{ form.last_name.label_tag }} {{ form.last_name }}</td>
+                    </tr>
+
+                    <tr class="d-flex flex-column">
+                        <td>{{ form.username.label_tag }} {{ form.username }}</td>
+                        <td>{{ form.password1.label_tag }} {{ form.password1 }}</td>
+                        <td>{{ form.password2.label_tag }} {{ form.password2 }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="Criar conta!" class="align-self-center my-2 ms-3 w-100 lr-btn">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
