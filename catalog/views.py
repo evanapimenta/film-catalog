@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic import ListView
@@ -13,7 +13,7 @@ def latest_movies(request):
 
 
 def show_movie(request):
-    return render(request, "movies/show_movie.html")
+    return render(request, "movies/display_movie.html")
 
 @login_required
 def register_movie(request):
@@ -83,3 +83,19 @@ def register_show(request):
     
     
     return render(request, "shows/add_show.html", {"form": form})
+
+
+def movie_detail(request, movie_id):
+    # movie = get_object_or_404(Movie, pk=movie_id)
+    # genre_names = ', '.join(genre.name for genre in movie.genre.all())
+    # context = {
+    #     'movie': movie,
+    #     'genre_names': genre_names,
+    # }
+    movie = get_object_or_404(Movie, pk=movie_id)
+    genre_names = ', '.join(genre.name for genre in movie.genre.all())
+    context = {
+        'movie': movie,
+        'genre_list': genre_names,  # Pass this to the context
+    }
+    return render(request, 'movies/movie_details.html', context)
