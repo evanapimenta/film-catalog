@@ -90,6 +90,6 @@ def movie_detail(request, movie_id):
     genre_names = ', '.join(genre.name for genre in movie.genre.all())
     context = {
         'movie': movie,
-        'genre_list': genre_names,  # Pass this to the context
+        'genre_list': genre_names,
     }
     return render(request, 'movies/movie_details.html', context)
