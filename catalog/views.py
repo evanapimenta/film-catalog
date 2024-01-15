@@ -86,12 +86,6 @@ def register_show(request):
 
 
 def movie_detail(request, movie_id):
-    # movie = get_object_or_404(Movie, pk=movie_id)
-    # genre_names = ', '.join(genre.name for genre in movie.genre.all())
-    # context = {
-    #     'movie': movie,
-    #     'genre_names': genre_names,
-    # }
     movie = get_object_or_404(Movie, pk=movie_id)
     genre_names = ', '.join(genre.name for genre in movie.genre.all())
     context = {
