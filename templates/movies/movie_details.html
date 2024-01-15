@@ -13,7 +13,7 @@
             <div class="movie-desc d-flex flex-column justify-content-center w-100">
                 <h1 class="title w-100 text-break">{{ movie.title }}</h1>
                 <p class="d-inline fw-normal text-break">
-                    {{ movie.year|date:"Y" }} • {% for genre in movie.genre.all %} {% trans genre.name %} {% if not forloop.last %}, {% endif %} {% endfor %}</p>
+                    {{ movie.year|date:"Y" }} • {% for genre in movie.genre.all %}{% trans genre.name %}{% if not forloop.last %}, {% endif %} {% endfor %}</p>
                 <div class="d-inline">
                     <button class="options-btn"><i class="fa-regular fa-bookmark"></i></button>
                     <button class="options-btn"><i class="fa-regular fa-heart"></i></button>
