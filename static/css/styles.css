@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@200;400;500;600&family=Rethink+Sans:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+}
 
 /* vars */
 :root {
@@ -71,6 +77,7 @@
   background-color: #13142b !important;
   width: 100vw;
 }
+
 
 #desc-container {
   height: auto;
@@ -448,4 +455,26 @@ h1 {
 
 .register-table input {
     width: 100%;
+}
+
+/* list view templates */
+
+.list-view {
+    height: 100vh;
+    color: #D3D3D3;
+}
+
+.sidebar {
+    width: 30%;
+}
+
+.main-view {
+    width: 70%;
+    height: auto;
+}
+
+.list-view-card {
+    background-color: url('% static movie.poster %');
+    width: 210px;
+    height: 300px;
 }
