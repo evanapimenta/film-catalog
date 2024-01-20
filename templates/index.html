@@ -30,9 +30,9 @@
 
 
     <section id="section-2" class="d-flex flex-column" style="background-color: #13142b;">
-        <div class="d-flex d-row">
-            <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Novidades</h5>
-            <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+        <div class="d-flex d-row pt-3">
+            <h5 class="p-3 ms-5 text-light fw-bold fs-4">Novidades</h5>
+            <div class="d-inline btn-group btn-group-toggle align-self-center mx-1" data-toggle="buttons">
                 <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option1"> Filmes
                 </label>
@@ -43,7 +43,7 @@
         </div>
 
         <div id="all-cards">
-            <div id="visible-cards" class="d-flex flex-row gap-4 mx-5">
+            <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
             {% for movie in movies|slice:":7" %}
                 <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{% static movie.poster %}'); text-decoration: none;">
                     <div id="overlay">
@@ -59,8 +59,10 @@
             <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
 
             <div class="d-flex d-row">
-                <h5 class="d-inline" style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Em Alta</h5>
-                <div class="d-inline btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+                <div>
+                    <h5 class="p-3 ms-5 text-light fw-bold fs-4">Em alta</h5>
+                </div>
+                <div class="d-inline btn-group btn-group-toggle align-self-center mx-1" data-toggle="buttons">
                     <label class="btn btn-secondary" id="btn-toggle">
                         <input type="radio" name="options" id="option1"> Filmes
                     </label>
@@ -71,7 +73,7 @@
             </div>
     
             <div id="all-cards">
-                <div id="visible-cards" class="d-flex flex-row gap-4 mx-5">
+                <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
                     {% for serie in series|slice:":7" %}
                     <a href="{% url 'movie' %}" class="cards movie-card" style="background-image: url('{{ serie.poster }}');">
                         <div id="overlay">
@@ -87,11 +89,11 @@
             
                 <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
 
-            <h5 style="font-family: 'Kalnia'; padding: 1em 3em; color: #e5bbce; font-weight: 800; font-size: 1.5em;">Por gênero</h5>
+            <h5 class="p-3 ms-5 text-light fw-bold fs-4">Por gênero</h5>
 
             <div id="all-cards">
-                <div id="visible-cards" class="d-flex flex-column" style="margin-left: 3.7em;">
-                    <div class="genre-wrapper d-flex flex-row gap-4">
+                <div id="visible-cards" class="d-flex flex-column overflow-hidden" style="margin-left: 3.7em;">
+                    <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre action">
                             <div id="overlay">
                                 <p>Ação</p>
@@ -129,7 +131,7 @@
                         </div>   
                     </div>
                     <div>.</div>
-                    <div class="genre-wrapper d-flex flex-row gap-4">
+                    <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre fantasy">
                             <div id="overlay">
                                 <img src="" alt="">

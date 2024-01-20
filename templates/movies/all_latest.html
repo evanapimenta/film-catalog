@@ -1,5 +1,31 @@
 {% extends "base.html" %}
-
 {% block show_latest %}
-<div id="container">lorem*100</div>
+{% load static %}
+
+<div class="px-5 pt-4 text-light" style="margin-bottom: -1.5em;">
+    <h2 class="fw-bold">Novidades</h2>
+</div>
+
+<div class="list-view p-5 d-flex flex-row">
+    <div class="sidebar d-flex bg-info"></div>
+    <div class="main-view d-flex flex-column p-2">
+
+        <!-- Div for the individual movies -->
+        <div class="list-view-card">
+            <a href="#" class="" style="background-image: url('{% static movie.poster %}'); text-decoration: none;">
+            <div id="overlay">
+                <div>
+                    <p>
+                        <div class="text-truncate" style="max-width: 170px;">
+                            <span class="fw-bold lh-1 d-block">{{ movie.title }} This is a big ass movie title that is very long and weird and not fitting at all.</span>
+                            <span class="fw-light d-block">{{ movie.year }} Ano de lançamento</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- End div for the individual movies -->
+
+    </div>
+</div>
 {% endblock %}

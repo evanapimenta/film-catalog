@@ -7,8 +7,7 @@ from .forms import MovieForm, ShowForm
 from .models import Movie, Show, Genre
 
 
-# Create your views here.
-def latest_movies(request):
+def show_latest(request):
     return render(request, "movies/all_latest.html")
 
 
@@ -92,4 +91,5 @@ def movie_detail(request, movie_id):
         'movie': movie,
         'genre_list': genre_names,
     }
+    
     return render(request, 'movies/movie_details.html', context)
