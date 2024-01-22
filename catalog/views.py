@@ -8,7 +8,14 @@ from .models import Movie, Show, Genre
 
 
 def show_latest(request):
-    return render(request, "movies/all_latest.html")
+    movies = Movie.objects.all()
+    context = {}
+    movies = Movie.objects.all()
+    series = Show.objects.all()
+    context["movies"] = movies
+    context["series"] = series
+
+    return render(request, "movies/all_latest.html", context=context)
 
 
 def show_movie(request):
@@ -82,6 +89,7 @@ def register_show(request):
     
     
     return render(request, "shows/add_show.html", {"form": form})
+
 
 
 def movie_detail(request, movie_id):
