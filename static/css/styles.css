@@ -8,6 +8,7 @@ body {
 
 /* vars */
 :root {
+    --main-banner: url('../assets/mm.jpg');
     --genre-action: url('https://www.syfy.com/sites/syfy/files/2019/05/john-wick-2017-image-3840x2400.jpg');
     --genre-adventure: url('https://sm.ign.com/ign_br/screenshot/default/jumanji-2-2_x968.jpg');
     --genre-comedy: url('https://s3.crackedcdn.com/phpimages/article/2/8/4/858284.jpg');
@@ -21,6 +22,10 @@ body {
     --genre-romance: url('https://hips.hearstapps.com/hmg-prod/images/hbz-most-romantic-movies-pride-and-prejudice-1549569450.jpg');
 }
   
+.w-100.h-100.d-flex.flex-column.justify-content-center.main-banner {
+    background-image: var(--main-banner);
+}
+
 .genre.action {
     background-image: var(--genre-action);
 }
@@ -382,8 +387,8 @@ ul {
   
 #footer-links a {
     text-decoration: none;
+    list-style: none;
     color: #D3D3D3;
-    margin-left: -30px;
 }
 
 footer h3 {
@@ -459,22 +464,28 @@ h1 {
 
 /* list view templates */
 
-.list-view {
+/* .list-view {
     height: 100vh;
     color: #D3D3D3;
-}
+    max-width: 500px;
+    background-color: red;
+    display: flex;
+    flex-direction: row; 
+}*/
 
 .sidebar {
-    width: 30%;
-}
-
-.main-view {
-    width: 70%;
+    width: 300px;
     height: auto;
 }
 
+
+.main-view {
+    max-width: 65em;
+}
+
 .list-view-card {
-    background-color: url('% static movie.poster %');
     width: 210px;
-    height: 300px;
+    height: 330px;
+    background-size: cover; 
+    background-position: 50% 50%;
 }
