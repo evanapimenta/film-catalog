@@ -1,20 +1,93 @@
 {% extends "base.html" %}
 {% block index %}
 {% load static %}
+{% load i18n %}
+
+<head>
+    <style>
+        :root {
+            --genre-action: url('{% static "static/assets/genres/action.jpg" %}');
+            --genre-adventure: url('{% static "static/assets/genres/adventure.jpg" %}');
+            --genre-comedy: url('{% static "static/assets/genres/comedy.jpg" %}');
+            --genre-documentary: url('{% static "static/assets/genres/documentary.png" %}');
+            --genre-drama: url('{% static "static/assets/genres/drama.jpg" %}');
+            --genre-western: url('{% static "static/assets/genres/western.jpg" %}');
+            --genre-fantasy: url('{% static "static/assets/genres/fantasy.jpg" %}');
+            --genre-scifi: url('{% static "static/assets/genres/scifi.jpeg" %}');
+            --genre-musical: url('{% static "static/assets/genres/musical.jpeg" %}');
+            --genre-romance: url('{% static "static/assets/genres/romance.jpg" %}');
+            --genre-mystery: url('{% static "static/assets/genres/mystery.jpeg" %}');
+        }
+
+
+        .genre.action {
+            background-image: var(--genre-action);
+        }
+        
+        .genre.adventure {
+            background-image: var(--genre-adventure);
+        }
+        
+        .genre.comedy {
+            background-image: var(--genre-comedy);
+        }
+        
+        .genre.documentary {
+            background-image: var(--genre-documentary);
+        }
+        
+        .genre.drama {
+            background-image: var(--genre-drama);
+        }
+        
+        .genre.western {
+            background-image: var(--genre-western);
+        }
+        
+        .genre.fantasy {
+            background-image: var(--genre-fantasy);
+        }
+        
+        .genre.comedy {
+            background-image: var(--genre-comedy);
+        }
+        
+        .genre.scifi {
+            background-image: var(--genre-scifi);
+        }
+        
+        .genre.mystery {
+            background-image: var(--genre-mystery);
+        }
+        
+        .genre.musical {
+            background-image: var(--genre-musical);
+        }
+        
+        .genre.romance {
+            background-image: var(--genre-romance);
+        }
+        .main-banner {
+            background-image: url('{% static "static/assets/mm.jpg" %}');
+            background-size: cover;
+        }
+
+    </style>
+</head>
 <body>
     <div id="container" class="w-100">
         <!-- Section 1 -->
         <section id="section-1" class="h-100 d-flex flex-row text-light">
-            <div class="w-100 h-100 d-flex flex-column justify-content-center main-banner" style="background-size: cover;">
+            <div class="w-100 h-100 d-flex flex-column justify-content-center main-banner">
             
             <div class="d-flex flex-column align-items-center">
-                <h1 style="font-family: 'Rethink Sans', sans-serif; font-weight: 800; font-size: 3em;">Bem vindo!</h1>
-                <h5 style="font-family: 'Rethink Sans', sans-serif; font-weight: 700; font-size: 1.5em;">Explore nossa seleção e encontre o <span style="color: #e5bbce;">filme</span>  ou <span style="color: #e5bbce;">série</span> que vai mudar sua vida.</h5>
+                <h1 class="main-h1">Bem vindo!</h1>
+                <h5 class="main-h5">Explore nossa seleção e encontre o <span class="pink">filme</span>  ou <span class="pink">série</span> que vai mudar sua vida.</h5>
             </div>
 
             <!-- Form -->
             <div class="d-flex justify-content-center">
-                <form class="row my-2 my-lg-0 mx-3 p-3 align-items-center" style="width: 60%;">
+                <form class="row my-2 my-lg-0 mx-3 p-3 align-items-center w-75">
                     <div class="col">
                         <input class="form-control me-sm-2 text-dark bg-light p-2" type="search" placeholder="Procure por um filme, série ou pessoa..." aria-label="Search" style="background-color: transparent;">
                     </div>
@@ -29,7 +102,7 @@
         <!-- Section 1 -->
 
 
-    <section id="section-2" class="d-flex flex-column" style="background-color: #13142b;">
+    <section id="section-2" class="d-flex flex-column">
         <div class="d-flex d-row pt-3">
             <h5 class="p-3 ms-5 text-light fw-bold fs-4">Novidades</h5>
             <div class="d-inline btn-group btn-group-toggle align-self-center mx-1" data-toggle="buttons">
@@ -56,7 +129,7 @@
                 </button>     
             </div>
 
-            <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
+            <hr class="mt-5 hrr">
 
             <div class="d-flex d-row">
                 <div>
@@ -87,46 +160,41 @@
                     </button>     
                 </div>
             
-                <hr class="mt-5" style="color: white; width: 95%; margin: auto;">
+                <hr class="mt-5 hrr">
 
             <h5 class="p-3 ms-5 text-light fw-bold fs-4">Por gênero</h5>
 
             <div id="all-cards">
-                <div id="visible-cards" class="d-flex flex-column overflow-hidden" style="margin-left: 3.7em;">
+                <div id="visible-cards" class="d-flex flex-column overflow-hidden">
                     <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre action">
                             <div id="overlay">
-                                <p>Ação</p>
+                                <p>{% trans "Action" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre adventure">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Aventura</p>
+                                <p>{% trans "Adventure" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre comedy">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Comédia</p>
+                                <p>{% trans "Comedy" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre documentary">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Documentário</p>
+                                <p>{% trans "Documentary" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre drama">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Drama</p>
+                                <p>{% trans "Drama" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre western">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Faroeste</p>
+                                <p>{% trans "Western" %}</p>
                             </div>
                         </div>   
                     </div>
@@ -134,32 +202,27 @@
                     <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre fantasy">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Fantasia</p>
+                                <p>{% trans "Fantasy" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre scifi">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Ficção Científica</p>
+                                <p>{% trans "Science Fiction" %}</p>
                             </div>
                         </div>
-                        <div class="cards-1 bg-light genre mistery">
+                        <div class="cards-1 bg-light genre mystery">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Mistério</p>
+                                <p>{% trans "Mystery" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre musical">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Musical</p>
+                                <p>{% trans "Musical" %}</p>
                             </div>
                         </div>
                         <div class="cards-1 bg-light genre romance">
                             <div id="overlay">
-                                <img src="" alt="">
-                                <p>Romance</p>
+                                <p>{% trans "Romance" %}</p>
                             </div>
                         </div>
                         <button class="genre-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
@@ -171,33 +234,5 @@
                 </div>
             
     </section>
-    <script>
-        // document.addEventListener('DOMContentLoaded', function() {
-        var dropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item.text-light");
-        var buttonGroup = document.querySelectorAll(".btn-secondary");
-  
-        dropdownItems.forEach(function(dropdownItem) {
-            dropdownItem.addEventListener("click", function() {
-                dropdownItems.forEach(function(item) {
-                    item.classList.remove("fw-bold");
-                    item.classList.remove("text-dark");
-                    item.style.backgroundImage = "";
-                });
-                this.classList.add("fw-bold");
-                this.classList.add("text-dark");
-                this.style.backgroundImage = "linear-gradient(45deg, #e5bbce, #646897)";
-            });
-        });
- 
-
-            // buttonGroup.forEach(function(button){
-            //     button.addEventListener("click", function(){
-            //         buttonGroup.forEach(function(btn){
-            //             btn.classList.remove("active");
-            //         });
-            //         button.classList.add("active");
-            //     });
-            // });
-</script>
 </body>
 {% endblock %}
