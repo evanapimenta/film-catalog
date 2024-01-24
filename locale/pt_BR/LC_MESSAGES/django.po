@@ -50,6 +50,10 @@ msgstr "Fantasia"
 msgid "Science Fiction"
 msgstr "Ficção Científica"
 
+#: catalog/models.py:7
+msgid "Documentary"
+msgstr "Documentário"
+
 #: catalog/forms.py:10 catalog/forms.py:18 catalog/models.py:23
 #: catalog/models.py:44
 msgid "Release date"

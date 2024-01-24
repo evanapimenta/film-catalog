@@ -8,72 +8,12 @@ body {
 
 /* vars */
 :root {
-    --main-banner: url('../assets/mm.jpg');
-    --genre-action: url('https://www.syfy.com/sites/syfy/files/2019/05/john-wick-2017-image-3840x2400.jpg');
-    --genre-adventure: url('https://sm.ign.com/ign_br/screenshot/default/jumanji-2-2_x968.jpg');
-    --genre-comedy: url('https://s3.crackedcdn.com/phpimages/article/2/8/4/858284.jpg');
-    --genre-documentary: url('https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2011/11/21/1321896902928/A-still-from-the-document-007.jpg?width=465&dpr=1&s=none');
-    --genre-drama: url('https://media.glamour.com/photos/5ec2e91dccfbc8c1a8fe8cbf/master/w_320%2Cc_limit/MSDTITA_FE057.jpg');
-    --genre-western: url('https://assets.classicfm.com/2013/26/once-upon-a-time-in-the-west-1372864143-view-0.jpg');
-    --genre-fantasy: url('https://data1.ibtimes.co.in/photo/en/full/38734/gods-egypt-upcoming-american-fantasy-film-featuring-ancient-egyptian-deities-directed-by-alex.jpg');
-    --genre-scifi: url('https://olhardigital.com.br/wp-content/uploads/2023/07/this-is-how-interstellar-originally-ended_9e59.1280.webp');
-    --genre-mistery: url('https://www.slashfilm.com/img/gallery/is-knives-out-3-still-happening-its-no-mystery-that-netflix-wants-more-murder/intro-1696619280.jpg');
-    --genre-musical: url('https://www.denofgeek.com/wp-content/uploads/2023/03/Singin-in-the-Rain-Main-Image.jpg');
-    --genre-romance: url('https://hips.hearstapps.com/hmg-prod/images/hbz-most-romantic-movies-pride-and-prejudice-1549569450.jpg');
-}
-  
-.w-100.h-100.d-flex.flex-column.justify-content-center.main-banner {
-    background-image: var(--main-banner);
+    --pink: #e5bbce;
 }
 
-.genre.action {
-    background-image: var(--genre-action);
+.pink {
+    color: var(--pink);
 }
-  
-.genre.adventure {
-    background-image: var(--genre-adventure);
-}
-  
-.genre.comedy {
-    background-image: var(--genre-comedy);
-}
-  
-.genre.documentary {
-    background-image: var(--genre-documentary);
-}
-  
-.genre.drama {
-    background-image: var(--genre-drama);
-}
-  
-.genre.western {
-    background-image: var(--genre-western);
-}
-  
-.genre.fantasy {
-    background-image: var(--genre-fantasy);
-}
-  
-.genre.comedy {
-    background-image: var(--genre-comedy);
-}
-  
-.genre.scifi {
-    background-image: var(--genre-scifi);
-}
-  
-.genre.mistery {
-    background-image: var(--genre-mistery);
-}
-  
-.genre.musical {
-    background-image: var(--genre-musical);
-}
-  
-.genre.romance {
-    background-image: var(--genre-romance);
-}
-
 
 /* containers */
 #container {
@@ -127,6 +67,7 @@ body {
   
 #visible-cards {
     overflow-x: scroll;
+    margin-left: 3.7em;
 }
 
 .cards {
@@ -417,7 +358,19 @@ h3 {
 h1 {
     font-family: 'Rethink Sans', sans-serif;
     font-weight: 600; 
-    font-size: 1.5em;
+    font-size: 1.3em;
+}
+
+.main-h5 {
+    font-family: 'Rethink Sans', sans-serif; 
+    font-weight: 700; 
+    font-size: 1.7em;
+}
+
+.main-h1 {
+    font-family: 'Rethink Sans', sans-serif; 
+    font-weight: 800; 
+    font-size: 3em;
 }
 
 .main-title {
@@ -488,4 +441,14 @@ h1 {
     height: 330px;
     background-size: cover; 
     background-position: 50% 50%;
+}
+
+section {
+    background-color: #13142b;
+}
+
+.hrr {
+    color: white; 
+    width: 95%; 
+    margin: auto;
 }
