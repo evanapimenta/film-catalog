@@ -1,0 +1,116 @@
+ {% extends "base.html" %}
+{% block show_all_movies %}
+{% load static %}
+{% load i18n %}
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    {{ form.media }}
+    <style>
+        .select2-selection.select2-selection--multiple {
+            /* background: rgb(23,13,44);
+            background: linear-gradient(170deg, rgba(23,13,44,1) 0%, rgba(43,24,78,1) 100%, rgba(201,193,190,1) 100%); */
+            background: rgba(5,6,15,0.6);
+            min-height: 5em;
+            border: none !important;
+        }
+        .select2-selection__rendered {
+            line-height: 2em !important;
+        }
+        .select2-container .select2-selection--single {
+            height: 2.5em !important;
+            border: none !important;
+            
+        }
+        .select2-selection__arrow {
+            height: 34px !important;
+            
+        }
+
+        .select2-results__options {
+            max-height: 200px;
+            color: #FFF;
+            background: rgb(23,13,44);
+            background: linear-gradient(170deg, rgba(23,13,44,1) 0%, rgba(43,24,78,1) 100%, rgba(201,193,190,1) 100%);
+            scroll-behavior: smooth;
+        }
+
+        #year, #name {
+            background: rgba(5,6,15,0.9);
+            border: none;
+            color: #FFF;
+        }
+
+
+    </style>
+</head>
+
+
+<div class="px-5 pt-4 text-light" style="margin-bottom: -1.5em;">
+    <h2 class="fw-bold">Todos os filmes</h2>
+</div>
+
+<div class="list-view p-5 d-flex flex-row">
+    <div class="sidebar d-flex text-light">
+        <form method="get" action="{% url 'show_all_movies' %}" class="sidebar-form">
+            <div class="form-group">
+                <label for="name" class="fs-6 fw-bold py-1">{% trans "Title" %}</label>
+                <input type="search" id="name" name="movie_title" class="form-control" value="{{ request.GET.title }}" autocomplete="off" placeholder="Pesquise por nome do filme...">
+              </div>
+              <div class="form-group">
+                <label for="year" class="fs-6 fw-bold py-1">{% trans "Year" %}</label>
+                <input type="search" id="year" name="movie_year" class="form-control" value="{{ request.GET.year }}" autocomplete="off" placeholder="Ano de lançamento...">
+              </div>
+              <div class="form-group">
+                <label for="genres" class="d-block fs-6 fw-bold py-1">{% trans "Genres" %}</label>
+                <select id="id_movie_genres" name="movie_genres" class="form-control" value="{{ request.GET.genre }}" multiple="multiple">
+                    <option value="action">{% trans "Action" %}</option>
+                    <option value="adventure">{% trans "Adventure" %}</option>
+                    <option value="comedy">{% trans "Comedy" %}</option>
+                    <option value="documentary">{% trans "Documentary" %}</option>
+                    <option value="drama">{% trans "Drama" %}</option>
+                    <option value="western">{% trans "Western" %}</option>
+                    <option value="fantasy">{% trans "Fantasy" %}</option>
+                    <option value="science-fiction">{% trans "Science Fiction" %}</option>
+                    <option value="mystery">{% trans "Mystery" %}</option>
+                    <option value="musical">{% trans "Musical" %}</option>
+                    <option value="romance">{% trans "Romance" %}</option>
+                </select>
+            </div>
+            <div class="d-block my-3">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+            
+        </form>
+    </div>
+    <div class="main-view d-flex p-2 flex-column">
+        <div class="d-flex flex-row gap-4 flex-wrap">
+            {% for movie in movies %}
+                <!-- Div for the individual movies -->
+                <a href="{% url 'movie-detail' movie.id %}" class="" style="text-decoration: none;">
+                    <div class="list-view-card" style="background-image: url('{% static movie.poster %}');">
+                    <div id="overlay">
+                        <div>
+                            <p>
+                                <div class="text-truncate" style="max-width: 170px;">
+                                    <span class="fw-bold lh-1 d-block">{{ movie.title }}</span>
+                                    <span class="fw-light d-block">{{ movie.year|date:"Y" }}</span>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+                <!-- End div for the individual movies -->
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+           $('#id_movie_genres').select2();
+        });
+    </script>
+</div>
+{% endblock %}

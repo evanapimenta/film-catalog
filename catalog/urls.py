@@ -20,7 +20,7 @@ from catalog import views
 
 urlpatterns = [
     path('add_movie/', views.register_movie, name='add_movie'),
-    path('show_latest/', views.show_latest, name='show_latest'),
+    path('show_all_movies/', views.show_all_movies, name='show_all_movies'),
     path('add_show/', views.register_show, name='add_show'),
     path('movies/<int:movie_id>/', views.movie_detail, name='movie-detail'),
 ]

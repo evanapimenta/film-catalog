@@ -1,25 +1,60 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views.generic import ListView
+from django.db.models import Q
 
 from .forms import MovieForm, ShowForm
 from .models import Movie, Show, Genre
 
 
-def show_latest(request):
-    movies = Movie.objects.all()
-    context = {}
-    movies = Movie.objects.all()
-    series = Show.objects.all()
-    context["movies"] = movies
-    context["series"] = series
+from django.db.models import Q
 
-    return render(request, "movies/all_latest.html", context=context)
+def show_all_movies(request):
+    movies = Movie.objects.all()
+    # series = Show.objects.all()
+
+    # title = request.GET.get('title')
+    # year = request.GET.get('year')
+    # genres = request.GET.get('genre')
+
+    # print(f"name: {title}")
+    # print(f"year: {year}")
+    # print(f"genres: {genres}")
+
+    # filters = Q()
+
+    # if filters:
+    #     if title:
+    #         filters &= Q(name__icontains=title)
+
+    #     if year:
+    #         filters &= Q(year=year)
+
+    #     if genres:
+    #         filters &= Q(genres__icontains=genres)
+
+    #     movies = movies.filter(filters)
+
+    context = {'movies': movies}
+
+    return render(request, "movies/movie_catalog.html", context=context)
 
 
 def show_movie(request):
     return render(request, "movies/display_movie.html")
+
+
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    genre_names = ', '.join(genre.name for genre in movie.genre.all())
+    context = {
+        'movie': movie,
+        'genre_list': genre_names,
+    }
+    
+    return render(request, 'movies/movie_details.html', context)
+
+# add titles
 
 @login_required
 def register_movie(request):
@@ -56,7 +91,7 @@ def register_movie(request):
     return render(request, "movies/add_movie.html", {"form": form})
 
 
-
+@login_required
 def register_show(request):
     if request.method == "POST":
         form = ShowForm(request.POST, request.FILES)
@@ -91,13 +126,5 @@ def register_show(request):
     return render(request, "shows/add_show.html", {"form": form})
 
 
-
-def movie_detail(request, movie_id):
-    movie = get_object_or_404(Movie, pk=movie_id)
-    genre_names = ', '.join(genre.name for genre in movie.genre.all())
-    context = {
-        'movie': movie,
-        'genre_list': genre_names,
-    }
-    
-    return render(request, 'movies/movie_details.html', context)
+def filter_view(request):
+    return render(request, 'movies/filter_sidebar.html', {})
