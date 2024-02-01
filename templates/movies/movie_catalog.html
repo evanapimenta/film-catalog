@@ -62,18 +62,18 @@
               </div>
               <div class="form-group">
                 <label for="genres" class="d-block fs-6 fw-bold py-1">{% trans "Genres" %}</label>
-                <select id="id_movie_genres" name="movie_genres" class="form-control" value="{{ request.GET.genre }}" multiple="multiple">
-                    <option value="action">{% trans "Action" %}</option>
-                    <option value="adventure">{% trans "Adventure" %}</option>
-                    <option value="comedy">{% trans "Comedy" %}</option>
-                    <option value="documentary">{% trans "Documentary" %}</option>
-                    <option value="drama">{% trans "Drama" %}</option>
-                    <option value="western">{% trans "Western" %}</option>
-                    <option value="fantasy">{% trans "Fantasy" %}</option>
-                    <option value="science-fiction">{% trans "Science Fiction" %}</option>
-                    <option value="mystery">{% trans "Mystery" %}</option>
-                    <option value="musical">{% trans "Musical" %}</option>
-                    <option value="romance">{% trans "Romance" %}</option>
+                <select id="id_movie_genres" name="movie_genres" class="form-control" value="{{ request.GET.movie_genres }}" multiple="multiple">                    
+                    <option value="Action">{% trans "Action" %}</option>
+                    <option value="Adventure">{% trans "Adventure" %}</option>
+                    <option value="Comedy">{% trans "Comedy" %}</option>
+                    <option value="Documentary">{% trans "Documentary" %}</option>
+                    <option value="Drama">{% trans "Drama" %}</option>
+                    <option value="Western">{% trans "Western" %}</option>
+                    <option value="Fantasy">{% trans "Fantasy" %}</option>
+                    <option value="Science-fiction">{% trans "Science Fiction" %}</option>
+                    <option value="Mystery">{% trans "Mystery" %}</option>
+                    <option value="Musical">{% trans "Musical" %}</option>
+                    <option value="Romance">{% trans "Romance" %}</option>
                 </select>
             </div>
             <div class="d-block my-3">
@@ -93,7 +93,7 @@
                             <p>
                                 <div class="text-truncate" style="max-width: 170px;">
                                     <span class="fw-bold lh-1 d-block">{{ movie.title }}</span>
-                                    <span class="fw-light d-block">{{ movie.year|date:"Y" }}</span>
+                                    <span class="fw-light d-block">{{ movie.year }}</span>
                                 </div>
                             </p>
                         </div>
@@ -101,7 +101,10 @@
                 </div>
             </a>
                 <!-- End div for the individual movies -->
+                {% empty %}
+                <p class="text-light">{% trans "No results found." %}</p>
             {% endfor %}
+
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
