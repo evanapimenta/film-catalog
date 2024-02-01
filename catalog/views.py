@@ -10,32 +10,23 @@ from .models import Movie, Show, Genre
 from django.db.models import Q
 
 def show_all_movies(request):
-    movies = Movie.objects.all()
-    # series = Show.objects.all()
+    m_qs = Movie.objects.all()
+    movie_title = request.GET.get('movie_title')
+    movie_year = request.GET.get('movie_year')
+    movie_genres = request.GET.getlist('movie_genres')
 
-    # title = request.GET.get('title')
-    # year = request.GET.get('year')
-    # genres = request.GET.get('genre')
+    if movie_title:
+        m_qs = m_qs.filter(title__icontains=movie_title)
+    if movie_year:
+        m_qs = m_qs.filter(year=movie_year)
+    if movie_genres:
+        genre_ids = Genre.objects.filter(name__in=movie_genres).values_list('id', flat=True)
+        m_qs = m_qs.filter(genre__in=genre_ids)
 
-    # print(f"name: {title}")
-    # print(f"year: {year}")
-    # print(f"genres: {genres}")
-
-    # filters = Q()
-
-    # if filters:
-    #     if title:
-    #         filters &= Q(name__icontains=title)
-
-    #     if year:
-    #         filters &= Q(year=year)
-
-    #     if genres:
-    #         filters &= Q(genres__icontains=genres)
-
-    #     movies = movies.filter(filters)
-
-    context = {'movies': movies}
+    print(m_qs)
+    context = {
+        'movies': m_qs
+    }
 
     return render(request, "movies/movie_catalog.html", context=context)
 
