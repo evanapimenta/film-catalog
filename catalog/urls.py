@@ -15,12 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-
 from catalog import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('add_movie/', views.register_movie, name='add_movie'),
+    path('add_movie/', views.add_movie, name='add_movie'),
     path('show_all_movies/', views.show_all_movies, name='show_all_movies'),
     path('add_show/', views.register_show, name='add_show'),
     path('movies/<int:movie_id>/', views.movie_detail, name='movie-detail'),
 ]
+
+if settings.DEBUG:
+  urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

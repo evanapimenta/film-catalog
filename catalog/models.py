@@ -23,7 +23,7 @@ class Movie(models.Model):
     year = models.PositiveIntegerField(_("Release year"))
     genre = models.ManyToManyField(Genre, related_name='movie_genre')
     synopsis = models.TextField(_("Synopsis"),)
-    poster = models.ImageField(_("Poster"), upload_to="static/assets", max_length=None, default='assets/no-image.jpg')
+    poster = models.ImageField(_("Poster"), blank=False, upload_to="catalog", default="catalog/no-image.jpg")
     date_added = models.DateField(_("Date added"),auto_now_add=True)
     date_updated = models.DateField(_("Date updated"),auto_now=True)
 

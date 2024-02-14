@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, logout
 from django.contrib import messages
-# from django.contrib.auth.forms import UserCreationForm
 
 from .forms import CustomUserCreationForm
 
@@ -23,7 +22,7 @@ class IndexView(View):
 class LoginView(View):
     def get(self, request):
         form = AuthenticationForm()
-        return render(request, 'config/login/login.html', {'form': form})
+        return render(request, 'config/login.html', {'form': form})
     
     def post(self, request):
         form = AuthenticationForm(data=request.POST)

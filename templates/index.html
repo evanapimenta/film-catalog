@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "config/base.html" %}
 {% block index %}
 {% load static %}
 {% load i18n %}
@@ -6,17 +6,17 @@
 <head>
     <style>
         :root {
-            --genre-action: url('{% static "static/assets/genres/action.jpg" %}');
-            --genre-adventure: url('{% static "static/assets/genres/adventure.jpg" %}');
-            --genre-comedy: url('{% static "static/assets/genres/comedy.jpg" %}');
-            --genre-documentary: url('{% static "static/assets/genres/documentary.png" %}');
-            --genre-drama: url('{% static "static/assets/genres/drama.jpg" %}');
-            --genre-western: url('{% static "static/assets/genres/western.jpg" %}');
-            --genre-fantasy: url('{% static "static/assets/genres/fantasy.jpg" %}');
-            --genre-scifi: url('{% static "static/assets/genres/scifi.jpeg" %}');
-            --genre-musical: url('{% static "static/assets/genres/musical.jpeg" %}');
-            --genre-romance: url('{% static "static/assets/genres/romance.jpg" %}');
-            --genre-mystery: url('{% static "static/assets/genres/mystery.jpeg" %}');
+            --genre-action: url('{% static "staticfiles/assets/genres/action.jpg" %}');
+            --genre-adventure: url('{% static "staticfiles/assets/genres/adventure.jpg" %}');
+            --genre-comedy: url('{% static "staticfiles/assets/genres/comedy.jpg" %}');
+            --genre-documentary: url('{% static "/staticfiles/assets/genres/documentary.png" %}');
+            --genre-drama: url('{% static "/staticfiles/assets/genres/drama.jpg" %}');
+            --genre-western: url('{% static "/staticfiles/assets/genres/western.jpg" %}');
+            --genre-fantasy: url('{% static "/staticfiles/assets/genres/fantasy.jpg" %}');
+            --genre-scifi: url('{% static "/staticfiles/assets/genres/scifi.jpeg" %}');
+            --genre-musical: url('{% static "/staticfiles/assets/genres/musical.jpeg" %}');
+            --genre-romance: url('{% static "/staticfiles/assets/genres/romance.jpg" %}');
+            --genre-mystery: url('{% static "/staticfiles/assets/genres/mystery.jpeg" %}');
         }
 
 
@@ -68,7 +68,7 @@
             background-image: var(--genre-romance);
         }
         .main-banner {
-            background-image: url('{% static "static/assets/mm.jpg" %}');
+            background-image: url('{% static "staticfiles/assets/mm.jpg" %}');
             background-size: cover;
         }
 
@@ -118,7 +118,8 @@
         <div id="all-cards">
             <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
             {% for movie in movies|slice:":7" %}
-                <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{% static movie.poster %}'); text-decoration: none;">
+                <!-- <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{% static movie.poster %}'); text-decoration: none;"> -->
+                    <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{{ movie.poster.url }}'); text-decoration: none;">
                     <div id="overlay">
                         <p>{{ movie.title }}</p>
                     </div>
