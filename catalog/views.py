@@ -28,7 +28,7 @@ def show_all_movies(request):
         'movies': m_qs
     }
 
-    return render(request, "movies/movie_catalog.html", context=context)
+    return render(request, "catalog/movie/movie_catalog.html", context=context)
 
 
 def show_movie(request):
@@ -43,12 +43,12 @@ def movie_detail(request, movie_id):
         'genre_list': genre_names,
     }
     
-    return render(request, 'movies/movie_details.html', context)
+    return render(request, 'catalog/movie/movie_details.html', context)
 
 # add titles
 
 @login_required
-def register_movie(request):
+def add_movie(request):
     if request.method == "POST":
         form = MovieForm(request.POST, request.FILES)
 
@@ -68,18 +68,18 @@ def register_movie(request):
 
             movie.genre.set(genre)
             movie.save()
-            messages.success(request, "Filme adicionado com sucesso!", "alert-success alert-dismissible")
+            # messages.success(request, "Filme adicionado com sucesso!", "alert-success alert-dismissible")
             
             return redirect('index')
             
-        else:
-            messages.success(request, "Houve um erro ao registrar o filme. Tente novamente.", "alert-danger alert-dismissible")
+        # else:
+        #     messages.success(request, "Houve um erro ao registrar o filme. Tente novamente.", "alert-danger alert-dismissible")
     
     else:
         form = MovieForm()
     
     
-    return render(request, "movies/add_movie.html", {"form": form})
+    return render(request, "catalog/movie/add_movie.html", {"form": form})
 
 
 @login_required
@@ -116,6 +116,3 @@ def register_show(request):
     
     return render(request, "shows/add_show.html", {"form": form})
 
-
-def filter_view(request):
-    return render(request, 'movies/filter_sidebar.html', {})

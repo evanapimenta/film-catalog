@@ -1,0 +1,26 @@
+{% extends "config/base.html" %}
+
+{% block addmovie %}
+<div class="add-class container">
+    <div class="add-title"><h1 class="main-title">Cadastrar Filme</h1></div>
+        <form action="/add_movie/" method="post" enctype="multipart/form-data" id="add-form">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Adicionar!">
+        </form>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>            
+            {% endfor %}
+        {% endif %}
+        <script>
+            $(document).ready(function() {
+               $('#id_movie_genres').select2();
+            });
+        </script>
+</div>
+{% endblock %}
