@@ -24,6 +24,8 @@ urlpatterns = [
     path('show_all_movies/', views.show_all_movies, name='show_all_movies'),
     path('add_show/', views.register_show, name='add_show'),
     path('movies/<int:movie_id>/', views.movie_detail, name='movie-detail'),
+    path('movies/<str:genre>/', views.GenreListView.as_view(), name='show-by-genre')
+
 ]
 
 if settings.DEBUG:

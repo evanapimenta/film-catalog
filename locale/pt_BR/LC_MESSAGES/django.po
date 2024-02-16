@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:32-0300\n"
+"POT-Creation-Date: 2024-02-16 14:17-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: catalog/forms.py:9 catalog/models.py:22 catalog/models.py:43
-#: templates/movies/movie_catalog.html:56
+#: catalog/forms.py:11 catalog/models.py:22 catalog/models.py:43
+#: catalog/templates/catalog/movie/movie_catalog.html:56
 msgid "Title"
 msgstr "Título"
 
-#: catalog/forms.py:10 catalog/forms.py:18 catalog/models.py:44
+#: catalog/forms.py:12 catalog/forms.py:20 catalog/models.py:44
 msgid "Release date"
 msgstr "Data de lançamento"
 
-#: catalog/forms.py:11 catalog/forms.py:19 catalog/models.py:11
-#: templates/movies/movie_catalog.html:64
+#: catalog/forms.py:13 catalog/forms.py:21 catalog/models.py:11
+#: catalog/templates/catalog/movie/movie_catalog.html:64
 msgid "Genres"
 msgstr "Gênero(s)"
 
-#: catalog/forms.py:12 catalog/forms.py:20 catalog/models.py:25
-#: catalog/models.py:46 templates/movies/movie_details.html:22
+#: catalog/forms.py:14 catalog/forms.py:22 catalog/models.py:25
+#: catalog/models.py:46 catalog/templates/catalog/movie/movie_details.html:24
 msgid "Synopsis"
 msgstr "Sinopse"
 
-#: catalog/forms.py:13 catalog/forms.py:21 catalog/models.py:26
+#: catalog/forms.py:15 catalog/forms.py:23 catalog/models.py:26
 #: catalog/models.py:47
 msgid "Poster"
 msgstr "Cartaz"
 
-#: catalog/forms.py:17
+#: catalog/forms.py:19
 msgid "Show title"
 msgstr "Título"
 
@@ -96,65 +96,77 @@ msgstr "Catálogo"
 msgid "Catalogs"
 msgstr "Catálogos"
 
+#: catalog/templates/catalog/movie/movie_catalog.html:60
+msgid "Year"
+msgstr "Ano"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:66
+#: templates/index.html:178
+msgid "Action"
+msgstr "Ação"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:67
+#: templates/index.html:185
+msgid "Adventure"
+msgstr "Aventura"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:68
+#: templates/index.html:192
+msgid "Comedy"
+msgstr "Comédia"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:69
+#: templates/index.html:199
+msgid "Documentary"
+msgstr "Documentário"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:70
+#: templates/index.html:206
+msgid "Drama"
+msgstr "Drama"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:71
+#: templates/index.html:213
+msgid "Western"
+msgstr "Faroeste"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:72
+#: templates/index.html:223
+msgid "Fantasy"
+msgstr "Fantasia"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:73
+#: templates/index.html:230
+msgid "Science Fiction"
+msgstr "Ficção Científica"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:74
+msgid "Mystery"
+msgstr "Mistério"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:75
+#: templates/index.html:244
+msgid "Musical"
+msgstr "Musical"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:76
+#: templates/index.html:251
+msgid "Romance"
+msgstr "Romance"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:105
+#: catalog/templates/catalog/movie/movies_by_genre.html:32
+msgid "No results found."
+msgstr "Nenhum resultado encontrado."
+
 #: core/settings.py:109
 msgid "Portuguese"
 msgstr "Português"
 
-#: templates/index.html:172 templates/movies/movie_catalog.html:66
-msgid "Action"
-msgstr "Ação"
+#: templates/index.html:237
+msgid "Horror"
+msgstr "Terror"
 
-#: templates/index.html:177 templates/movies/movie_catalog.html:67
-msgid "Adventure"
-msgstr "Aventura"
-
-#: templates/index.html:182 templates/movies/movie_catalog.html:68
-msgid "Comedy"
-msgstr "Comédia"
-
-#: templates/index.html:187 templates/movies/movie_catalog.html:69
-msgid "Documentary"
-msgstr "Documentário"
-
-#: templates/index.html:192 templates/movies/movie_catalog.html:70
-msgid "Drama"
-msgstr "Drama"
-
-#: templates/index.html:197 templates/movies/movie_catalog.html:71
-#, fuzzy
-msgid "Western"
-msgstr "Faroeste"
-
-#: templates/index.html:205 templates/movies/movie_catalog.html:72
-msgid "Fantasy"
-msgstr "Fantasia"
-
-#: templates/index.html:210 templates/movies/movie_catalog.html:73
-msgid "Science Fiction"
-msgstr "Ficção Científica"
-
-#: templates/index.html:215 templates/movies/movie_catalog.html:74
-msgid "Mystery"
-msgstr "Mistério"
-
-#: templates/index.html:220 templates/movies/movie_catalog.html:75
-msgid "Musical"
-msgstr "Musical"
-
-#: templates/index.html:225 templates/movies/movie_catalog.html:76
-msgid "Romance"
-msgstr "Romance"
-
-#: templates/movies/movie_catalog.html:60
-msgid "Year"
-msgstr "Ano"
-
-#: templates/movies/movie_catalog.html:105
-msgid "No results found."
-msgstr "Nenhum resultado encontrado."
-
-#~ msgid "Horror"
-#~ msgstr "Terror"
-
-#~ msgid "Animation"
-#~ msgstr "Animação"
+#: templates/index.html:258
+msgid "Animation"
+msgstr "Animação"

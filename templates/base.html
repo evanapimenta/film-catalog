@@ -23,7 +23,7 @@
     </head>
     <body>
         <div id="content" class="d-flex flex-column">
-        {% include "config/nav.html" %}
+        {% include "nav.html" %}
         {% block index %}{% endblock %}
         {% block addmovie %}{% endblock %}
         {% block show_all_movies %}{% endblock %}
@@ -31,8 +31,10 @@
         {% block show_movie %}{% endblock %}
         {% block login %}{% endblock %}
         {% block register %}{% endblock %}
-        {% include "config/footer.html" %}
+        {% block show-by-genre %}{% endblock %}
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock %}
         </div>
-        <script src="{% static 'js/base.js' %}" type="text/javascript"></script>
     </body>
 </html>

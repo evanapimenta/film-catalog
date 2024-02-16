@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+from django.views.generic import ListView
+from requests import request
 
 from .forms import MovieForm, ShowForm
 from .models import Movie, Show, Genre
@@ -31,8 +33,25 @@ def show_all_movies(request):
     return render(request, "catalog/movie/movie_catalog.html", context=context)
 
 
+
+class GenreListView(ListView):    
+    model = Movie
+    template_name = "catalog/movie/movies_by_genre.html"
+
+
+    def get_queryset(self):
+        genre_name = self.kwargs.get('genre')
+        print(genre_name)
+        return Movie.objects.filter(genre__name__icontains=genre_name)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genre_name'] = self.kwargs.get('genre')
+        return context
+
+
 def show_movie(request):
-    return render(request, "movies/display_movie.html")
+    return render(request, "catalog/movie/display_movie.html")
 
 
 def movie_detail(request, movie_id):

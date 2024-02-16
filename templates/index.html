@@ -1,4 +1,4 @@
-{% extends "config/base.html" %}
+{% extends "base.html" %}
 {% block index %}
 {% load static %}
 {% load i18n %}
@@ -6,17 +6,18 @@
 <head>
     <style>
         :root {
-            --genre-action: url('{% static "staticfiles/assets/genres/action.jpg" %}');
-            --genre-adventure: url('{% static "staticfiles/assets/genres/adventure.jpg" %}');
-            --genre-comedy: url('{% static "staticfiles/assets/genres/comedy.jpg" %}');
-            --genre-documentary: url('{% static "/staticfiles/assets/genres/documentary.png" %}');
-            --genre-drama: url('{% static "/staticfiles/assets/genres/drama.jpg" %}');
-            --genre-western: url('{% static "/staticfiles/assets/genres/western.jpg" %}');
-            --genre-fantasy: url('{% static "/staticfiles/assets/genres/fantasy.jpg" %}');
-            --genre-scifi: url('{% static "/staticfiles/assets/genres/scifi.jpeg" %}');
-            --genre-musical: url('{% static "/staticfiles/assets/genres/musical.jpeg" %}');
-            --genre-romance: url('{% static "/staticfiles/assets/genres/romance.jpg" %}');
-            --genre-mystery: url('{% static "/staticfiles/assets/genres/mystery.jpeg" %}');
+            --genre-action: url('{% static "config/genres/action.jpg" %}');
+            --genre-adventure: url('{% static "config/genres/adventure.jpg" %}');
+            --genre-comedy: url('{% static "config/genres/comedy.jpg" %}');
+            --genre-documentary: url('{% static "config/genres/documentary.png" %}');
+            --genre-drama: url('{% static "config/genres/drama.jpg" %}');
+            --genre-western: url('{% static "config/genres/western.jpg" %}');
+            --genre-fantasy: url('{% static "config/genres/fantasy.jpg" %}');
+            --genre-scifi: url('{% static "config/genres/scifi.jpeg" %}');
+            --genre-musical: url('{% static "config/genres/musical.jpeg" %}');
+            --genre-romance: url('{% static "config/genres/romance.jpg" %}');
+            --genre-horror: url('{% static "config/genres/horror.jpg" %}');
+            --genre-animation: url('{% static "config/genres/animation.jpg" %}');
         }
 
 
@@ -56,8 +57,8 @@
             background-image: var(--genre-scifi);
         }
         
-        .genre.mystery {
-            background-image: var(--genre-mystery);
+        .genre.horror {
+            background-image: var(--genre-horror);
         }
         
         .genre.musical {
@@ -67,8 +68,13 @@
         .genre.romance {
             background-image: var(--genre-romance);
         }
+
+        .genre.animation {
+            background-image: var(--genre-animation);
+        }
+
         .main-banner {
-            background-image: url('{% static "staticfiles/assets/mm.jpg" %}');
+            background-image: url('{% static "config/mm.jpg" %}');
             background-size: cover;
         }
 
@@ -132,7 +138,7 @@
 
             <hr class="mt-5 hrr">
 
-            <div class="d-flex d-row">
+            <!-- <div class="d-flex d-row">
                 <div>
                     <h5 class="p-3 ms-5 text-light fw-bold fs-4">Em alta</h5>
                 </div>
@@ -144,9 +150,9 @@
                     <input type="radio" name="options" id="option2"> Séries
                     </label>
                 </div>
-            </div>
+            </div> -->
     
-            <div id="all-cards">
+            <!-- <div id="all-cards">
                 <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
                     {% for serie in series|slice:":7" %}
                     <a href="{% url 'movie' %}" class="cards movie-card" style="background-image: url('{{ serie.poster }}');">
@@ -159,76 +165,100 @@
                     <button class="d-flex more-btn btn text-light align-items-center justify-content-center fw-bold main-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
                         Veja mais
                     </button>     
-                </div>
+                </div> -->
             
-                <hr class="mt-5 hrr">
-
             <h5 class="p-3 ms-5 text-light fw-bold fs-4">Por gênero</h5>
 
             <div id="all-cards">
                 <div id="visible-cards" class="d-flex flex-column overflow-hidden">
                     <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre action">
+                            <a href="{% url 'show-by-genre' genre='action' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Action" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre adventure">
+                            <a href="{% url 'show-by-genre' genre='adventure' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Adventure" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre comedy">
+                            <a href="{% url 'show-by-genre' genre='comedy' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Comedy" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre documentary">
+                            <a href="{% url 'show-by-genre' genre='documentary' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Documentary" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre drama">
+                            <a href="{% url 'show-by-genre' genre='drama' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Drama" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre western">
+                            <a href="{% url 'show-by-genre' genre='western' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Western" %}</p>
                             </div>
+                            </a>
                         </div>   
                     </div>
                     <div>.</div>
                     <div class="genre-wrapper d-flex flex-row gap-4 overflow-hidden">
                         <div class="cards-1 bg-light genre fantasy">
+                            <a href="{% url 'show-by-genre' genre='fantasy' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Fantasy" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre scifi">
+                            <a href="{% url 'show-by-genre' genre='science fiction' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Science Fiction" %}</p>
                             </div>
+                            </a>
                         </div>
-                        <div class="cards-1 bg-light genre mystery">
+                        <div class="cards-1 bg-light genre horror">
+                            <a href="{% url 'show-by-genre' genre='horror' %}"  class="text-decoration-none">
                             <div id="overlay">
-                                <p>{% trans "Mystery" %}</p>
+                                <p>{% trans "Horror" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre musical">
+                            <a href="{% url 'show-by-genre' genre='musical' %}" class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Musical" %}</p>
                             </div>
+                            </a>
                         </div>
                         <div class="cards-1 bg-light genre romance">
+                            <a href="{% url 'show-by-genre' genre='romance' %}"  class="text-decoration-none">
                             <div id="overlay">
                                 <p>{% trans "Romance" %}</p>
                             </div>
+                            </a>
                         </div>
-                        <button class="genre-btn btn text-light align-items-center justify-content-center fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                            Veja mais
-                        </button>                         
+                        <div class="cards-1 bg-light genre animation">
+                            <a href="{% url 'show-by-genre' genre='animation' %}"  class="text-decoration-none">
+                            <div id="overlay">
+                                <p>{% trans "Animation" %}</p>
+                            </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 </div>
