@@ -419,17 +419,6 @@ h1 {
     width: 100%;
 }
 
-/* list view templates */
-
-/* .list-view {
-    height: 100vh;
-    color: #D3D3D3;
-    max-width: 500px;
-    background-color: red;
-    display: flex;
-    flex-direction: row; 
-}*/
-
 .sidebar {
     width: 300px;
     height: auto;
@@ -455,4 +444,9 @@ section {
     color: white; 
     width: 95%; 
     margin: auto;
+}
+
+.genre-list-view {
+    min-height: 55vh;
+    max-height: auto;
 }
