@@ -3,7 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 from django.views.generic import ListView
+from django.utils.translation import gettext as _
+
 from requests import request
+
 
 from .forms import MovieForm, ShowForm
 from .models import Movie, Show, Genre
@@ -33,6 +36,28 @@ def show_all_movies(request):
     return render(request, "catalog/movie/movie_catalog.html", context=context)
 
 
+def show_all_shows(request):
+    m_qs = Show.objects.all()
+    show_title = request.GET.get('show_title')
+    show_year = request.GET.get('show_year')
+    show_genres = request.GET.getlist('show_genres')
+
+    if show_title:
+        m_qs = m_qs.filter(title__icontains=show_title)
+    if show_year:
+        m_qs = m_qs.filter(year=show_year)
+    if show_genres:
+        genre_ids = Genre.objects.filter(name__in=show_genres).values_list('id', flat=True)
+        m_qs = m_qs.filter(genre__in=genre_ids)
+
+    print(m_qs)
+    context = {
+        'shows': m_qs
+    }
+
+    return render(request, "catalog/show/show_catalog.html", context=context)
+
+
 
 class GenreListView(ListView):    
     model = Movie
@@ -41,13 +66,38 @@ class GenreListView(ListView):
 
     def get_queryset(self):
         genre_name = self.kwargs.get('genre')
-        print(genre_name)
         return Movie.objects.filter(genre__name__icontains=genre_name)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genre_name'] = _(self.kwargs.get('genre').capitalize())
+        return context
+    
+
+
+class ShowGenreListView(ListView):    
+    model = Show
+    template_name = "catalog/show/shows_by_genre.html"
+
+
+    def get_queryset(self):
+        genre_name = self.kwargs.get('genre')
+        print(genre_name)
+        return Show.objects.filter(genre__name__icontains=genre_name)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['genre_name'] = self.kwargs.get('genre')
         return context
+
+
+
+def get_movie_by_genre(request, genre):
+    context = {}
+    movies = Movie.objects.filter(genre__name__icontains=genre)
+    context['movies'] = movies
+
+    return render(request, "catalog/movie/movies_by_genre.html", context=context) 
 
 
 def show_movie(request):
@@ -63,6 +113,17 @@ def movie_detail(request, movie_id):
     }
     
     return render(request, 'catalog/movie/movie_details.html', context)
+
+
+def show_detail(request, show_id):
+    show = get_object_or_404(Show, pk=show_id)
+    genre_names = ', '.join(genre.name for genre in show.genre.all())
+    context = {
+        'show': show,
+        'genre_list': genre_names,
+    }
+    
+    return render(request, 'catalog/show/show_details.html', context)
 
 # add titles
 

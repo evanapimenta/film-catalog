@@ -124,10 +124,9 @@
         <div id="all-cards">
             <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
             {% for movie in movies|slice:":7" %}
-                <!-- <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{% static movie.poster %}'); text-decoration: none;"> -->
                     <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{{ movie.poster.url }}'); text-decoration: none;">
                     <div id="overlay">
-                        <p>{{ movie.title }}</p>
+                        <p>{{ movie.title }}<br><span class="fw-lighter">{{ movie.year }}</span></p>
                     </div>
                 </a>
             {% endfor %}
@@ -137,35 +136,6 @@
             </div>
 
             <hr class="mt-5 hrr">
-
-            <!-- <div class="d-flex d-row">
-                <div>
-                    <h5 class="p-3 ms-5 text-light fw-bold fs-4">Em alta</h5>
-                </div>
-                <div class="d-inline btn-group btn-group-toggle align-self-center mx-1" data-toggle="buttons">
-                    <label class="btn btn-secondary" id="btn-toggle">
-                        <input type="radio" name="options" id="option1"> Filmes
-                    </label>
-                    <label class="btn btn-secondary" id="btn-toggle">
-                    <input type="radio" name="options" id="option2"> Séries
-                    </label>
-                </div>
-            </div> -->
-    
-            <!-- <div id="all-cards">
-                <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
-                    {% for serie in series|slice:":7" %}
-                    <a href="{% url 'movie' %}" class="cards movie-card" style="background-image: url('{{ serie.poster }}');">
-                        <div id="overlay">
-                            <p>{{ serie.title }}</p>
-                        </div>
-                    </a>
-                    {% endfor %}
-
-                    <button class="d-flex more-btn btn text-light align-items-center justify-content-center fw-bold main-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                        Veja mais
-                    </button>     
-                </div> -->
             
             <h5 class="p-3 ms-5 text-light fw-bold fs-4">Por gênero</h5>
 

@@ -5,7 +5,9 @@
 {% block show-by-genre %}
 <div class="genre-list-view">
     <div class="px-5 pt-4 text-light" style="margin-bottom: -1.5em;">
-        <h2 class="fw-bold">Movies in {{ genre }}</h2>
+        <h2 class="fw-bold">
+            {% blocktrans with genre_name=genre_name %}{{ genre_name }}{% endblocktrans %}  
+        </h2>
     </div>
 
     <div class="list-view p-5 d-flex flex-row">

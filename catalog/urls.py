@@ -24,7 +24,14 @@ urlpatterns = [
     path('show_all_movies/', views.show_all_movies, name='show_all_movies'),
     path('add_show/', views.register_show, name='add_show'),
     path('movies/<int:movie_id>/', views.movie_detail, name='movie-detail'),
-    path('movies/<str:genre>/', views.GenreListView.as_view(), name='show-by-genre')
+    path('show_all_shows/', views.show_all_shows, name='show-all-shows'),
+    path('shows/<int:show_id>/', views.show_detail, name='show-detail'),
+    path('movies/genre/<str:genre>/', views.GenreListView.as_view(), name='show-by-genre'),
+    path('shows/genre/<str:genre>/', views.ShowGenreListView.as_view(), name='show-show-by-genre'),
+    # path('show/<int:show_id>/', views.show_detail, name='show-detail'),
+
+
+    # path('movies/genre/<str:genre>', views.get_movie_by_genre, name='show-by-genre')
 
 ]
 
