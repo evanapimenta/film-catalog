@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-16 14:17-0300\n"
+"POT-Creation-Date: 2024-03-18 14:17-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,21 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: catalog/forms.py:11 catalog/models.py:22 catalog/models.py:43
-#: catalog/templates/catalog/movie/movie_catalog.html:56
+#: catalog/templates/catalog/movie/movie_catalog.html:19
+#: catalog/templates/catalog/show/show_catalog.html:20
 msgid "Title"
 msgstr "Título"
 
-#: catalog/forms.py:12 catalog/forms.py:20 catalog/models.py:44
+#: catalog/forms.py:12 catalog/forms.py:20
 msgid "Release date"
 msgstr "Data de lançamento"
 
 #: catalog/forms.py:13 catalog/forms.py:21 catalog/models.py:11
-#: catalog/templates/catalog/movie/movie_catalog.html:64
+#: catalog/templates/catalog/movie/movie_catalog.html:27
+#: catalog/templates/catalog/show/show_catalog.html:28
 msgid "Genres"
 msgstr "Gênero(s)"
 
 #: catalog/forms.py:14 catalog/forms.py:22 catalog/models.py:25
-#: catalog/models.py:46 catalog/templates/catalog/movie/movie_details.html:24
+#: catalog/models.py:46 catalog/templates/catalog/movie/movie_details.html:25
+#: catalog/templates/catalog/show/show_details.html:25
 msgid "Synopsis"
 msgstr "Sinopse"
 
@@ -54,11 +57,9 @@ msgstr "Nome"
 msgid "Genre"
 msgstr "Gênero"
 
-#: catalog/models.py:23
-#, fuzzy
-#| msgid "Release date"
+#: catalog/models.py:23 catalog/models.py:44
 msgid "Release year"
-msgstr "Data de lançamento"
+msgstr "Ano de lançamento"
 
 #: catalog/models.py:27 catalog/models.py:48
 msgid "Date added"
@@ -96,77 +97,112 @@ msgstr "Catálogo"
 msgid "Catalogs"
 msgstr "Catálogos"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:60
+#: catalog/templates/catalog/movie/movie_catalog.html:12
+msgid "All Movies"
+msgstr "Todos os Filmes"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:20
+msgid "Search by movie title..."
+msgstr "Procure pelo título do filme..."
+
+#: catalog/templates/catalog/movie/movie_catalog.html:23
+#: catalog/templates/catalog/show/show_catalog.html:24
 msgid "Year"
 msgstr "Ano"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:66
-#: templates/index.html:178
+#: catalog/templates/catalog/movie/movie_catalog.html:24
+#: catalog/templates/catalog/show/show_catalog.html:25
+msgid "Search by release year..."
+msgstr "Procure pelo ano de lançamento..."
+
+#: catalog/templates/catalog/movie/movie_catalog.html:29
+#: catalog/templates/catalog/show/show_catalog.html:30 templates/index.html:148
 msgid "Action"
 msgstr "Ação"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:67
-#: templates/index.html:185
+#: catalog/templates/catalog/movie/movie_catalog.html:30
+#: catalog/templates/catalog/show/show_catalog.html:31 templates/index.html:155
 msgid "Adventure"
 msgstr "Aventura"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:68
-#: templates/index.html:192
+#: catalog/templates/catalog/movie/movie_catalog.html:31
+#: catalog/templates/catalog/show/show_catalog.html:32 templates/index.html:162
 msgid "Comedy"
 msgstr "Comédia"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:69
-#: templates/index.html:199
+#: catalog/templates/catalog/movie/movie_catalog.html:32
+#: catalog/templates/catalog/show/show_catalog.html:33 templates/index.html:169
 msgid "Documentary"
 msgstr "Documentário"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:70
-#: templates/index.html:206
+#: catalog/templates/catalog/movie/movie_catalog.html:33
+#: catalog/templates/catalog/show/show_catalog.html:34 templates/index.html:176
 msgid "Drama"
 msgstr "Drama"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:71
-#: templates/index.html:213
+#: catalog/templates/catalog/movie/movie_catalog.html:34
+#: catalog/templates/catalog/show/show_catalog.html:35 templates/index.html:183
 msgid "Western"
 msgstr "Faroeste"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:72
-#: templates/index.html:223
+#: catalog/templates/catalog/movie/movie_catalog.html:35
+#: catalog/templates/catalog/show/show_catalog.html:36 templates/index.html:207
+msgid "Horror"
+msgstr "Terror"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:36
+#: catalog/templates/catalog/show/show_catalog.html:37 templates/index.html:193
 msgid "Fantasy"
 msgstr "Fantasia"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:73
-#: templates/index.html:230
+#: catalog/templates/catalog/movie/movie_catalog.html:37
+#: catalog/templates/catalog/show/show_catalog.html:38 templates/index.html:200
 msgid "Science Fiction"
 msgstr "Ficção Científica"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:74
+#: catalog/templates/catalog/movie/movie_catalog.html:38
+#: catalog/templates/catalog/show/show_catalog.html:39
 msgid "Mystery"
 msgstr "Mistério"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:75
-#: templates/index.html:244
+#: catalog/templates/catalog/movie/movie_catalog.html:39
+#: catalog/templates/catalog/show/show_catalog.html:40 templates/index.html:214
 msgid "Musical"
 msgstr "Musical"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:76
-#: templates/index.html:251
+#: catalog/templates/catalog/movie/movie_catalog.html:40
+#: catalog/templates/catalog/show/show_catalog.html:41 templates/index.html:221
 msgid "Romance"
 msgstr "Romance"
 
-#: catalog/templates/catalog/movie/movie_catalog.html:105
-#: catalog/templates/catalog/movie/movies_by_genre.html:32
+#: catalog/templates/catalog/movie/movie_catalog.html:44
+#: catalog/templates/catalog/show/show_catalog.html:45
+msgid "Search"
+msgstr "Pesquisar"
+
+#: catalog/templates/catalog/movie/movie_catalog.html:69
+#: catalog/templates/catalog/movie/movies_by_genre.html:34
+#: catalog/templates/catalog/show/show_catalog.html:70
 msgid "No results found."
 msgstr "Nenhum resultado encontrado."
+
+#: catalog/templates/catalog/movie/movies_by_genre.html:9
+#, python-format
+msgid "Genre - %(genre_name)s"
+msgstr "Gênero - %(genre_name)s"
+
+#: catalog/templates/catalog/show/show_catalog.html:13
+msgid "All Shows"
+msgstr "Todas as Séries"
+
+#: catalog/templates/catalog/show/show_catalog.html:21
+msgid "Search by show title..."
+msgstr "Procure pelo título da série..."
 
 #: core/settings.py:109
 msgid "Portuguese"
 msgstr "Português"
 
-#: templates/index.html:237
-msgid "Horror"
-msgstr "Terror"
-
-#: templates/index.html:258
+#: templates/index.html:228
 msgid "Animation"
 msgstr "Animação"

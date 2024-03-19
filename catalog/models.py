@@ -41,7 +41,7 @@ class Movie(models.Model):
 
 class Show(models.Model):
     title = models.CharField(_("Title"),max_length=50)
-    year = models.DateField(_("Release date"),auto_now=False, auto_now_add=False)
+    year = models.PositiveIntegerField(_("Release year"))
     genre = models.ManyToManyField(Genre, related_name=_('show_genre'))
     synopsis = models.TextField(_("Synopsis"),)
     poster = models.ImageField(_("Poster"), upload_to='static/assets', max_length=None, default='no-image.jpg')

@@ -71,8 +71,8 @@ body {
 }
 
 .cards {
-    width: 12%;
-    height: 14em;
+    width: 13%;
+    height: 19em;
     text-align: center;
     display: flex; 
     align-items: center; 
@@ -81,12 +81,7 @@ body {
     background-size: cover;
     background-position: 50% 50%;
 }
-  
-.cards:hover {
-    height: 14.5em;
-    width: 12.5%;
-    transition: ease-in 0.2s;
-}
+
   
 .cards-1 {
     width: 18%; 
@@ -108,12 +103,15 @@ body {
 
 #search-btn {
   font-weight: bold;
-  border: 1px linear-gradient(45deg, #e5bbce, #646897);
+  color: #e5bbce !important; 
+  border: 1px solid #e5bbce;
+  width: 150px;
 }
 
 #search-btn:hover {
   background-image: linear-gradient(45deg, #e5bbce, #646897);
-  border: 1px solid #e5bbce;        
+  border: 1px solid #e5bbce;      
+  color: #212529 !important;  
   transition: ease-in-out 0.2s;
   
 }
@@ -420,10 +418,14 @@ h1 {
 }
 
 .sidebar {
-    width: 300px;
+    width: 400px;
     height: auto;
 }
 
+
+.sidebar-form {
+    width: 80%;
+}
 
 .main-view {
     max-width: 65em;
@@ -450,3 +452,38 @@ section {
     min-height: 55vh;
     max-height: auto;
 }
+
+.select2-selection.select2-selection--multiple {
+    /* background: rgb(23,13,44);
+    background: linear-gradient(170deg, rgba(23,13,44,1) 0%, rgba(43,24,78,1) 100%, rgba(201,193,190,1) 100%); */
+    background: rgba(5,6,15,0.6) !important;
+    min-height: 5em;
+    border: none !important;
+}
+.select2-selection__rendered {
+    line-height: 2em !important;
+}
+.select2-container .select2-selection--single {
+    height: 2.5em !important;
+    border: none !important;
+    
+}
+.select2-selection__arrow {
+    height: 34px !important;
+    
+}
+
+.select2-results__options {
+    max-height: 200px;
+    color: #FFF;
+    background: rgb(23,13,44);
+    background: linear-gradient(170deg, rgba(23,13,44,1) 0%, rgba(43,24,78,1) 100%, rgba(201,193,190,1) 100%);
+    scroll-behavior: smooth;
+}
+
+#year, #name {
+    background: rgba(5,6,15,0.9);
+    border: none;
+    color: #FFF;
+}
+

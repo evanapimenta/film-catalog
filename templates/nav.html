@@ -7,13 +7,8 @@
           Filmes</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link link-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link link-light" href="{% url 'show-all-shows' %}" role="button" aria-haspopup="true" aria-expanded="false">
           Séries</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item text-light" href="#">Em exibição</a>
-            <a class="dropdown-item text-light" href="#">Novidades</a>
-            <a class="dropdown-item text-light" href="#">Mais bem avaliadas</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link link-light" href="/register">Pessoas</a>
         </li>
@@ -53,7 +48,7 @@
           <input class="form-control me-sm-2 text-light w-100" type="search" placeholder="Buscar filme, série ou pessoa" aria-label="Search" style="background-color: transparent;">
         </div>
         <div class="col-auto">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" style="color: #e5bbce; border: 1px solid #e5bbce;" id="search-btn">Pesquisar</button>
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="search-btn">Pesquisar</button>
         </div>
        </form>
   </nav>
