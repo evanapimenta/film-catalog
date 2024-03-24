@@ -71,8 +71,8 @@ body {
 }
 
 .cards {
-    width: 13%;
-    height: 19em;
+    width: 350px;
+    height: 300px;
     text-align: center;
     display: flex; 
     align-items: center; 
@@ -123,11 +123,9 @@ body {
 }
   
 .more-btn {
-    background: rgb(44,42,72);
-    background: linear-gradient(352deg, rgba(44,42,72,1) 31%, rgba(11,13,33,1) 100%); 
     font-size: 16px;
     transition: ease-out 0.2s;
-    width: 13%;
+    width: 200px;
 }
   
 .more-btn:hover {
@@ -306,6 +304,10 @@ body {
 .movie-desc {
     width: 50%;    
 }
+
+.cards.movie-card {
+    color: pink;
+}
   
 .title {
   font-weight: 800 !important;
@@ -432,8 +434,8 @@ h1 {
 }
 
 .list-view-card {
-    width: 210px;
-    height: 330px;
+    width: 220px;
+    height: 320px;
     background-size: cover; 
     background-position: 50% 50%;
 }

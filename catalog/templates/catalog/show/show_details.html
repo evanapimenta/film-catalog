@@ -5,12 +5,12 @@
 
 {% block show_show %}
 <div id="desc-container" class="d-flex flex-column">
-    <div class="show-bg" style="background-image: url('{{ show.poster.url }}')">
-        <div id="show-overlay">
-            <div class="show-img d-flex justify-content-center">
+    <div class="movie-bg" style="background-image: url('{{ show.poster.url }}')">
+        <div id="movie-overlay">
+            <div class="movie-img d-flex justify-content-center">
                 <div class="img-img" style="background-image: url('{{ show.poster.url }}');"></div>
             </div>
-            <div class="show-desc d-flex flex-column justify-content-center w-100">
+            <div class="movie-desc d-flex flex-column justify-content-center w-100">
                 <h1 class="title w-100 text-break">{{ show.title }}</h1>
                 <p class="d-inline fw-normal text-break">
                     {{ show.year }} • {% for genre in show.genre.all %}{% trans genre.name %}{% if not forloop.last %}, {% endif %} {% endfor %}

@@ -17,7 +17,7 @@ class MovieForm(forms.Form):
 
 class ShowForm(forms.Form):
     show_title = forms.CharField(label=_("Show title"), max_length=100)
-    show_year = forms.DateField(label=_("Release date"))
+    show_year = forms.IntegerField(label=_("Release date"))
     show_genres = forms.ModelMultipleChoiceField(label=_("Genres"), queryset=Genre.objects.all(), required=False, widget=Select2Multiple(attrs={'data-width': '100%'}))
     show_synopsis = forms.CharField(widget=forms.Textarea, label=_("Synopsis"), max_length=None, required=False)
-    show_poster = forms.ImageField(label=_("Poster"), required=False)
+    show_poster = forms.ImageField(label=_("Poster"), required=False, initial=default_poster)

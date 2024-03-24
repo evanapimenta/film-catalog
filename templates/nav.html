@@ -1,5 +1,5 @@
 {% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: #13142b;">
+<nav class="navbar navbar-expand-lg navbar-dark d-flex" style="background: #13142b;">
     <a class="navbar-brand mx-5" href="{% url 'index' %}" style="font-family: 'Kalnia', sans-serif; font-weight: 700; font-size: 1.5em;">Movie<span style="color: #e5bbce;">Mate</span></a>
       <ul class="nav px-2 py-2">
         <li class="nav-item dropdown">
@@ -7,13 +7,13 @@
           Filmes</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link link-light" href="{% url 'show-all-shows' %}" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link link-light" href="{% url 'show_all_shows' %}" role="button" aria-haspopup="true" aria-expanded="false">
           Séries</a>
         <li class="nav-item">
-          <a class="nav-link link-light" href="/register">Pessoas</a>
+          <a class="nav-link link-light" href="/">Pessoas</a>
         </li>
       </ul>
-      <ul class="nav px-2 py-2 ms-auto">
+      <ul class="nav px-2 py-2">
           {% if request.user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link link-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,13 +43,5 @@
           </div>
         </li>
       </ul>
-      <form class="row my-2 my-lg-0 mx-3">
-        <div class="col">
-          <input class="form-control me-sm-2 text-light w-100" type="search" placeholder="Buscar filme, série ou pessoa" aria-label="Search" style="background-color: transparent;">
-        </div>
-        <div class="col-auto">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="search-btn">Pesquisar</button>
-        </div>
-       </form>
   </nav>
   {% endblock %}

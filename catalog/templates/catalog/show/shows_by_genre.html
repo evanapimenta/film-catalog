@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block show-show-by-genre %}
+<div class="genre-list-view">
+    <div class="px-5 pt-4 text-light" style="margin-bottom: -1.5em;">
+        <h2 class="fw-bold">
+            {% blocktrans with genre_name=genre_name %}{{ genre_name }}{% endblocktrans %}  
+        </h2>
+    </div>
+
+    <div class="list-view p-5 d-flex flex-row">
+        <div class="main-view d-flex p-2 flex-column">
+            <div class="d-flex flex-row gap-4 flex-wrap">
+                {% for show in object_list %}
+                    <!-- Div for the individual shows -->
+                    <a href="{% url 'show-detail' show.id %}" class="" style="text-decoration: none;">
+                        <div class="list-view-card" style="background-image: url('{{ show.poster.url }}');">
+                        <div id="overlay">
+                            <div>
+                                <p>
+                                    <div class="text-truncate" style="max-width: 170px;">
+                                        <span class="fw-bold lh-1 d-block">{{ show.title }}</span>
+                                        <span class="fw-light d-block">{{ show.year }}</span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                    <!-- End div for the individual movies -->
+                    {% empty %}
+                    <p class="text-light">{% trans "No results found." %}</p>
+                    {% endfor %}
+
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    </div>
+</div>
+{% endblock %}
