@@ -82,22 +82,12 @@ class ShowGenreListView(ListView):
 
     def get_queryset(self):
         genre_name = self.kwargs.get('genre')
-        print(genre_name)
         return Show.objects.filter(genre__name__icontains=genre_name)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['genre_name'] = self.kwargs.get('genre')
+        context['genre_name'] = _(self.kwargs.get('genre').capitalize())
         return context
-
-
-
-def get_movie_by_genre(request, genre):
-    context = {}
-    movies = Movie.objects.filter(genre__name__icontains=genre)
-    context['movies'] = movies
-
-    return render(request, "catalog/movie/movies_by_genre.html", context=context) 
 
 
 def show_movie(request):
@@ -163,7 +153,7 @@ def add_movie(request):
 
 
 @login_required
-def register_show(request):
+def add_show(request):
     if request.method == "POST":
         form = ShowForm(request.POST, request.FILES)
 
@@ -183,16 +173,12 @@ def register_show(request):
 
             show.genre.set(genre)
             show.save()
-            messages.success(request, "Série adicionada com sucesso!", "alert-success alert-dismissible")
             
             return redirect('index')
-            
-        else:
-            messages.success(request, "Houve um erro ao registrar a série. Tente novamente.", "alert-danger alert-dismissible")
-    
+                
     else:
         form = ShowForm()
     
     
-    return render(request, "shows/add_show.html", {"form": form})
+    return render(request, "catalog/show/add_show.html", {"form": form})
 

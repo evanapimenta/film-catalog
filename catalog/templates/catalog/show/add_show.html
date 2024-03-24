@@ -5,7 +5,7 @@
 </style>
 <div class="add-class container">
         <h1 class="main-title">Cadastrar Série</h1>
-        <form action="/register_show" method="post" enctype="multipart/form-data" id="add-form">
+        <form action="/add_show/" method="post" enctype="multipart/form-data" id="add-form">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Adicionar!">

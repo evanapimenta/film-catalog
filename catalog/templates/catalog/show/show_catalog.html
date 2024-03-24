@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block show_all_shows %}
 {% load static %}
 {% load i18n %}
@@ -15,7 +14,7 @@
 
 <div class="list-view p-5 d-flex flex-row">
     <div class="sidebar d-flex text-light">
-        <form method="get" action="{% url 'show-all-shows' %}" class="sidebar-form">
+        <form method="get" action="{% url 'show_all_shows' %}" class="sidebar-form">
             <div class="form-group">
                 <label for="name" class="fs-6 fw-bold py-1">{% trans "Title" %}</label>
                 <input type="search" id="name" name="show_title" class="form-control" value="{{ request.GET.title }}" autocomplete="off" placeholder="{% trans 'Search by show title...' %}">
