@@ -24,7 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'easy_select2',
-    'bootstrap5',
+    'django_bootstrap5',
+    'rest_framework',
+    'drf_spectacular',
 
     'core',
     'config',
@@ -140,3 +142,7 @@ MESSAGE_TAGS = {
 }
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
