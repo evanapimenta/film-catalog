@@ -10,9 +10,14 @@ from requests import request
 
 from .forms import MovieForm, ShowForm
 from .models import Movie, Show, Genre
-
+from . import serializers
 
 from django.db.models import Q
+
+from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 def show_all_movies(request):
     m_qs = Movie.objects.all()
@@ -182,3 +187,43 @@ def add_show(request):
     
     return render(request, "catalog/show/add_show.html", {"form": form})
 
+
+"""
+Views for the Movie APIs.
+"""
+
+class MovieViewSet(viewsets.ModelViewSet):
+    """
+    View for managing movie APIs.
+    """
+    serializer_class = serializers.MovieSerializer
+    queryset = Movie.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+
+    def get_queryset(self):
+        """Retrieve movies for authenticated user"""
+        return self.queryset.filter(user=self.request.user).order_by('-id')
+    
+
+
+
+
+"""
+Views for the Show APIs.
+"""
+
+class ShowViewSet(viewsets.ModelViewSet):
+    """
+    View for managing show APIs.
+    """
+    serializer_class = serializers.ShowSerializer
+    queryset = Show.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    
+    def get_queryset(self):
+        """Retrieve movies for authenticated user"""
+        return self.queryset.filter(user=self.request.user).order_by('-id')
