@@ -19,11 +19,6 @@ from catalog import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register('movies', views.MovieViewSet)
-router.register('shows', views.ShowViewSet)
 # TO-DO: show viewset
 
 app_name = 'catalog'
@@ -37,8 +32,6 @@ urlpatterns = [
     path('shows/genre/<str:genre>/', views.ShowGenreListView.as_view(), name='show-show-by-genre'),
     path('shows/<int:show_id>/', views.show_detail, name='show-detail'),
     path('show_all_shows/', views.show_all_shows, name='show_all_shows'),
-
-    path('', include(router.urls)),
 ]
 
 if settings.DEBUG:

@@ -14,16 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from drf_spectacular.views import (
-  SpectacularAPIView,
-  SpectacularSwaggerView
-)
 
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from drf_spectacular.views import (
+  SpectacularAPIView,
+  SpectacularSwaggerView
+)
+from rest_framework import routers
+
+from catalog.api.viewsets import MovieViewSet, ShowViewSet
+
+router = routers.DefaultRouter()
+router.register(r'movies', MovieViewSet)
+router.register(r'shows', ShowViewSet)
 
 
 urlpatterns = [
@@ -31,13 +38,7 @@ urlpatterns = [
     path('', include('catalog.urls')),
     path('admin/', admin.site.urls),
     path('select2/', include("django_select2.urls")),
-    path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
-    path(
-      'api/docs/',
-      SpectacularSwaggerView.as_view(url_name='api-schema'),
-      name='api-docs',
-    ),
-    path('api/catalog/', include('catalog.urls')),
+    path('api/v1/', include(router.urls))
 
 ]
 
