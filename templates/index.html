@@ -124,7 +124,7 @@
         <div id="all-cards">
             <div id="visible-cards" class="d-flex flex-row gap-4 mx-5 overflow-hidden">
             {% for movie in movies|slice:":6" %}
-                    <a href="{% url 'movie-detail' movie.id %}" class="cards movie-card" style="background-image: url('{{ movie.poster.url }}'); text-decoration: none;">
+                    <a href="{% url 'catalog:movie_detail' movie.id %}" class="cards movie-card" style="background-image: url('{{ movie.poster.url }}'); text-decoration: none;">
                     <div id="overlay">
                         <p>{{ movie.title }}<br><span class="fw-lighter">{{ movie.year }}</span></p>
                     </div>

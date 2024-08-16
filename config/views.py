@@ -69,5 +69,8 @@ class RegisterView(View):
             # TO-DO: Criar página com mensagem de redirectionaento. return redirect('registration_success')
 
         else:
-            messages.error(request, "Cadastro não realizado. Tente novamente")
-            return redirect('register')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
+
+            return render(request, 'config/register.html', {'form': form})

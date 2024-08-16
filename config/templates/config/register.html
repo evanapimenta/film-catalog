@@ -23,6 +23,14 @@
     </div>
 
         <div class="table-container">
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
             <form action="{% url 'register' %}" method="post" enctype="multipart/form-data" id="add-form">
                 {% csrf_token %}
                 <table class="d-flex flex-row register-table">

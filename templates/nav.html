@@ -7,10 +7,10 @@
           Filmes</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link link-light" href="{% url 'catalog:show_all_shows' %}" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link link-light" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           Séries</a>
         <li class="nav-item">
-          <a class="nav-link link-light" href="/">Pessoas</a>
+          <a class="nav-link link-light" href="#">Pessoas</a>
         </li>
       </ul>
       <ul class="nav px-2 py-2">
@@ -23,7 +23,7 @@
               <hr class="text-light">
               <a class="dropdown-item text-light" href="#"><i class="fa-regular fa-user me-2"></i>Meu perfil</a>
               <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-list me-2"></i>Minhas listas</a>
-              <a class="dropdown-item text-light" href="{% url 'catalog:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Logout</a>
+              <a class="dropdown-item text-light" href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Logout</a>
             </div>
           </li>
           {% else %}

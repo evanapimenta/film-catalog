@@ -15,7 +15,7 @@
             <div class="d-flex flex-row gap-4 flex-wrap">
                 {% for movie in object_list %}
                     <!-- Div for the individual movies -->
-                    <a href="{% url 'movie-detail' movie.id %}" class="" style="text-decoration: none;">
+                    <a href="{% url 'catalog:movie_detail' movie.id %}" class="" style="text-decoration: none;">
                         <div class="list-view-card" style="background-image: url('{{ movie.poster.url }}');">
                         <div id="overlay">
                             <div>
